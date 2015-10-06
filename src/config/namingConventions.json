@@ -1,0 +1,13 @@
+{
+"modificationList":[],
+"reactionSite": ["phospho"],
+"reactionState":["P","PP"],
+"definitions":[{"rsi":0,"rst":0},
+	       {"rsi":0,"rst":1}
+              ],
+		
+"patterns":{
+	
+}
+
+}

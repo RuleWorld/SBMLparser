@@ -1,0 +1,164 @@
+WARNING:Simulation:In reaction v5, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v43, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v45, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v47, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v49, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v51, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v53, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v55, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v57, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v59, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v85, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v87, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v89, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v91, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v93, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v95, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v97, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v99, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v101, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v107, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v110, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v113, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v116, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v119, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v122, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v125, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+DEBUG:Atomization:added induced naming convention [['EGF_EGFR2'], ['EGF_EGFRm2']]
+DEBUG:Atomization:added induced naming convention [['EGF_EGFRm2'], ['EGF_EGFRim2']]
+DEBUG:Atomization:inverting order of [['Proti'], ['Prot']] for lexical analysis
+DEBUG:Atomization:inverting order of [['Shcm'], ['Shc']] for lexical analysis
+DEBUG:Atomization:added induced naming convention [['MEK'], ['MEK_P']]
+DEBUG:Atomization:added induced naming convention [['EGFRi'], ['EGFRideg']]
+DEBUG:Atomization:added relationship to existing convention [['Ras_GTP'], ['Rasi_GTPm']]
+DEBUG:Atomization:inverting order of [['Proti'], ['Prot']] for lexical analysis
+DEBUG:Atomization:inverting order of [['Shcm'], ['Shc']] for lexical analysis
+DEBUG:Atomization:added induced naming convention [['MEK_P'], ['MEK_PP']]
+DEBUG:Atomization:added relationship to existing convention [['MEK'], ['MEK_PP']]
+DEBUG:Atomization:added relationship to existing convention [['Raf'], ['Rafim']]
+DEBUG:Atomization:added relationship to existing convention [['MEK'], ['MEKi_P']]
+INFO:Atomization:Ras_GTP was determined to be partially match [['Ras_GDP']] according to annotation information.
+INFO:Atomization:Lexical relationship inferred between                                     ['Rafm', 't_Rafm'], user information confirming it is required
+INFO:Atomization:common root Raf=Rafim:t_Rafm
+INFO:Atomization:Lexical relationship inferred between                                     ['Rafim', 't_Rafm'], user information confirming it is required
+INFO:Atomization:Lexical relationship inferred between                                     ['Rafim', 't_Rafm'], user information confirming it is required
+WARNING:Atomization:For species MEKi_P, candidates [['MEK_P'], ['MEK']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['MEK'] based on longest partial match
+WARNING:Atomization:For species MEK_PP, candidates [['MEK'], ['MEK_P']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['MEK_P'] based on longest partial match
+WARNING:Atomization:For species Rafim, candidates [['Rafi'], ['Rafi'], ['Raf']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['Rafi'] based on longest partial match
+WARNING:Atomization:For species ERKi_P, candidates [['ERKi'], ['ERKi'], ['ERK']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['ERKi'] based on longest partial match
+DEBUG:Atomization:Stoichiometry analysis result in self-consistent definitions but conflicts with lexical analysis for species EGF_EGFRi: stoichiometry([['EGFi', 'EGFRi'], ['EGF', 'EGFR']])!= naming([['EGF', 'EGFRi']]). Selecting lexical analysis
+WARNING:Atomization:For species MEK_P_Rafm, candidates [['MEK_P', 'Rafm'], ['MEK', 'Rafm']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['MEK_P', 'Rafm'] based on longest partial match
+ERROR:Atomization:Species MEKi_Rafim has conflicting definitions between stoichiometry (['MEK', 'Rafim']) and naming conventions [['MEKi', 'Rafim']]. Choosing the latter
+ERROR:Atomization:Species ERKi_MEKi_PP has conflicting definitions between stoichiometry (['ERK', 'MEKi_PP']) and naming conventions [['ERKi', 'MEKi_PP']]. Choosing the latter
+WARNING:Atomization:For species Rafim_Pase, candidates [['Phosphotase1', 'Rafim'], ['Phosphotase1', 'Rafi']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['Phosphotase1', 'Rafim'] based on longest partial match
+WARNING:Atomization:For species ERK_P_MEK_PP, candidates [['ERK_P', 'MEK_PP'], ['ERK', 'MEK_PP']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['ERK_P', 'MEK_PP'] based on longest partial match
+WARNING:Atomization:For species ERKi_PP, candidates [['ERKi'], ['ERKi_P'], ['ERKi']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['ERKi_P'] based on longest partial match
+DEBUG:Atomization:Stoichiometry analysis result in self-consistent definitions but conflicts with lexical analysis for species Rafi_Rasi_GTP: stoichiometry([['Raf', 'Rasi_GTP'], ['Rafim', 'Rasi_GTPm']])!= naming([['Rafi', 'Rasi_GTP']]). Selecting lexical analysis
+WARNING:Atomization:For species EGF_EGFRi2, candidates [['EGF', 'EGF', 'EGFRi', 'EGFRi'], ['EGF', 'EGF', 'EGFR', 'EGFR']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['EGF', 'EGF', 'EGFRi', 'EGFRi'] based on longest partial match
+WARNING:Atomization:For species ERKi_P_MEKi_PP, candidates [['ERKi_P', 'MEKi_PP'], ['ERKi', 'MEKi_PP']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['ERKi_P', 'MEKi_PP'] based on longest partial match
+WARNING:Atomization:For species EGF_EGFRim2_GAP, candidates [['EGF', 'EGF', 'EGFRmi', 'EGFR', 'GAP'], ['EGF', 'EGF', 'EGFRm', 'EGFR', 'GAP']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['EGF', 'EGF', 'EGFRmi', 'EGFR', 'GAP'] based on longest partial match
+DEBUG:Atomization:Stoichiometry analysis result in self-consistent definitions but conflicts with lexical analysis for species EGF_EGFRm2_GAP_Grb2_Sos_Ras_GTP: stoichiometry([['EGF', 'EGF', 'EGFRm', 'EGFR', 'GAP', 'Grb2', 'Ras_GTPm', 'Sos'], ['EGF', 'EGF', 'EGFRm', 'EGFR', 'GAP', 'Grb2', 'Ras_GDP', 'Sos']])!= naming([['EGF', 'EGF', 'EGFRm', 'EGFR', 'GAP', 'Grb2', 'Ras_GTP', 'Sos']]). Selecting lexical analysis
+DEBUG:Atomization:Stoichiometry analysis result in self-consistent definitions but conflicts with lexical analysis for species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Ras_GTP: stoichiometry([['EGF', 'EGF', 'EGFRm', 'EGFR', 'GAP', 'Grb2', 'Ras_GTPm', 'Shcm', 'Sos'], ['EGF', 'EGF', 'EGFRm', 'EGFR', 'GAP', 'Grb2', 'Ras_GDP', 'Shcm', 'Sos']])!= naming([['EGF', 'EGF', 'EGFRm', 'EGFR', 'GAP', 'Grb2', 'Ras_GTP', 'Shcm', 'Sos']]). Selecting lexical analysis
+DEBUG:Atomization:Stoichiometry analysis result in self-consistent definitions but conflicts with lexical analysis for species EGF_EGFRim2_GAP_Grb2_Sos_Ras_GTP: stoichiometry([['EGF', 'EGF', 'EGFRmi', 'EGFR', 'GAP', 'Grb2', 'Rasi_GTPm', 'Sos'], ['EGF', 'EGF', 'EGFRmi', 'EGFR', 'GAP', 'Grb2', 'Ras_GDP', 'Sos'], ['EGF', 'EGF', 'EGFRm', 'EGFR', 'GAP', 'Grb2', 'Ras_GTP', 'Sos']])!= naming([['EGF', 'EGF', 'EGFRmi', 'EGFR', 'GAP', 'Grb2', 'Ras_GTP', 'Sos']]). Selecting lexical analysis
+DEBUG:Atomization:Stoichiometry analysis result in self-consistent definitions but conflicts with lexical analysis for species EGF_EGFRim2_GAP_Shcm_Grb2_Sos_Ras_GTP: stoichiometry([['EGF', 'EGF', 'EGFRmi', 'EGFR', 'GAP', 'Grb2', 'Rasi_GTPm', 'Shcm', 'Sos'], ['EGF', 'EGF', 'EGFRmi', 'EGFR', 'GAP', 'Grb2', 'Ras_GDP', 'Shcm', 'Sos'], ['EGF', 'EGF', 'EGFRm', 'EGFR', 'GAP', 'Grb2', 'Ras_GTP', 'Shcm', 'Sos']])!= naming([['EGF', 'EGF', 'EGFRmi', 'EGFR', 'GAP', 'Grb2', 'Ras_GTP', 'Shcm', 'Sos']]). Selecting lexical analysis
+WARNING:ATOMIZATION:adding forced transformation: Ras_GDP:[['Ras_GDP']]:Ras_GTP
+WARNING:ATOMIZATION:adding forced transformation: Ras_GDP:[['Ras_GTP']]:Ras_GTPm
+WARNING:ATOMIZATION:adding forced transformation: Ras_GDP:[['Ras_GTP']]:Rasi_GTP
+WARNING:ATOMIZATION:adding forced transformation: Ras_GDP:[['Rasi_GTP']]:Rasi_GTPm
+INFO:Atomization:According to BioGrid/Pathwaycommons there's more than one way to bind ['EGFR', 'EGF'] and ['EGF', 'EGFR'] together: [('EGFR', 'EGFR'), ('EGF', 'EGF')]. Defaulting to EGFR-EGFR
+DEBUG:Atomization:Binding information found in BioGrid/Pathwaycommons for for EGFR-GAP
+DEBUG:Atomization:Binding information found in BioGrid/Pathwaycommons for for EGFR-Shc
+INFO:Atomization:According to BioGrid/Pathwaycommons there's more than one way to bind ['EGF', 'GAP', 'EGF', 'EGFR', 'EGFR'] and ['Grb2'] together: [('GAP', 'Grb2'), ('EGFR', 'Grb2')]. Defaulting to EGFR-Grb2
+WARNING:Atomization:We don't know how ['EGF', 'EGFR', 'Grb2', 'GAP', 'EGFR', 'EGF'] and ['Prot'] bind together and there's no relevant BioGrid/Pathway commons information. Defaulting to largest pair : EGFR-Prot
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRm2_GAP_Shcm_Grb2
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRim2_GAP_Shcm_Grb2
+DEBUG:Atomization:Binding information found in BioGrid/Pathwaycommons for for GAP-Ras_GDP
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Prot
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRim2_GAP_Shcm_Grb2_Sos
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Prot
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Ras_GDP
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Ras_GTP
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRim2_GAP_Shcm_Grb2_Sos_Ras_GDP
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRim2_GAP_Shcm_Grb2_Sos_Ras_GTP
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Ras_GDP_Prot
+WARNING:Atomization:Redundant bonds detected between molecules ['Shc', 'Grb2', 'EGFR'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Ras_GTP_Prot
+WARNING:Simulation:In reaction v5, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v43, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v45, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v47, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v49, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v51, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v53, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v55, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v57, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v59, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v85, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v87, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v89, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v91, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v93, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v95, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v97, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v99, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v101, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v107, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v110, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v113, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v116, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v119, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v122, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v125, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:t_EGF_EGFRm() reported as function, but usage is ambiguous
+WARNING:Simulation:t_SHC_P_t() reported as function, but usage is ambiguous
+WARNING:Simulation:t_ERK_PP() reported as function, but usage is ambiguous
+WARNING:Simulation:t_MEK_PP() reported as function, but usage is ambiguous
+WARNING:Simulation:t_Ras_GTP() reported as function, but usage is ambiguous
+WARNING:Simulation:t_Rafm() reported as function, but usage is ambiguous
+INFO:Summary:File contains 20 molecules out of 100 original SBML species
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRim2_GAP_Shcm_Grb2_Sos_Ras_GDP is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Ras_GTP_Prot is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Prot is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Ras_GTP is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRm2_GAP_Shcm_Grb2 is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRim2_GAP_Shcm_Grb2_Sos is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRim2_GAP_Shcm_Grb2_Sos_Ras_GTP is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Ras_GDP_Prot is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Prot is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRm2_GAP_Shcm_Grb2_Sos_Ras_GDP is not likely
+INFO:Atomization:Used context information to determine that the bond ['EGFR', 'Grb2'] in species EGF_EGFRim2_GAP_Shcm_Grb2 is not likely
+WARNING:Simulation:In reaction v5, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v43, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v45, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v47, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v49, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v51, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v53, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v55, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v57, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v59, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v85, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v87, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v89, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v91, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v93, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v95, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v97, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v99, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v101, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v107, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v110, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v113, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v116, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v119, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v122, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v125, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:t_EGF_EGFRm() reported as function, but usage is ambiguous
+WARNING:Simulation:t_SHC_P_t() reported as function, but usage is ambiguous
+WARNING:Simulation:t_ERK_PP() reported as function, but usage is ambiguous
+WARNING:Simulation:t_MEK_PP() reported as function, but usage is ambiguous
+WARNING:Simulation:t_Ras_GTP() reported as function, but usage is ambiguous
+WARNING:Simulation:t_Rafm() reported as function, but usage is ambiguous
+INFO:Summary:File contains 20 molecules out of 100 original SBML species
+WARNING:ContextAnalysis:Species with suspect context information were found. Information is being dumped to output19b.bngl_context.log

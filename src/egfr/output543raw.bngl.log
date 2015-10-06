@@ -1,0 +1,10 @@
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+WARNING:Simulation:STAT1m() reported as function, but usage is ambiguous
+ERROR:Simulation:Pseudo observable STAT1m() in reaction re159: STAT1Cm()@compartment_1 + __IL6_gp80_gp130_JAK__2m()@compartment_1 <-> __IL6_gp80_gp130_JAK__2m_STAT1m()@compartment_1 parameter_229,parameter_230 #Modifiers(species_85, species_9, s139)
+WARNING:Simulation:STAT3m() reported as function, but usage is ambiguous
+INFO:Summary:File contains 111 molecules out of 111 original SBML species

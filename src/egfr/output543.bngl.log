@@ -1,0 +1,114 @@
+DEBUG:Atomization:added induced naming convention [['STAT3C'], ['STAT3Cm']]
+DEBUG:Atomization:added induced naming convention [['STAT3'], ['STAT3N']]
+DEBUG:Atomization:added induced naming convention [['STAT3'], ['STAT3C']]
+DEBUG:Atomization:added induced naming convention [['mRNA'], ['mRNA_SOCS3N']]
+DEBUG:Atomization:added induced naming convention [['mRNA'], ['mRNA_SOCS3C']]
+DEBUG:Atomization:inverting order of [['SHP2m'], ['SHP2']] for lexical analysis
+DEBUG:Atomization:added induced naming convention [['MEK'], ['MEK_P']]
+DEBUG:Atomization:inverting order of [['CEBPi'], ['CEBP']] for lexical analysis
+DEBUG:Atomization:added induced naming convention [['CEBP'], ['CEBPi']]
+DEBUG:Atomization:added induced naming convention [['mRNA'], ['mRNA_SOCS1N']]
+DEBUG:Atomization:added induced naming convention [['mRNA'], ['mRNA_SOCS1C']]
+DEBUG:Atomization:added relationship to existing convention [['STAT1'], ['STAT1Cm']]
+DEBUG:Atomization:added relationship to existing convention [['STAT1'], ['STAT1Nm']]
+DEBUG:Atomization:added induced naming convention [['STAT'], ['STAT1Cm']]
+DEBUG:Atomization:added induced naming convention [['STAT'], ['STAT3Cm']]
+DEBUG:Atomization:added induced naming convention [['STAT'], ['STAT1C']]
+DEBUG:Atomization:added induced naming convention [['STAT'], ['STAT1Nm']]
+DEBUG:Atomization:added induced naming convention [['STAT'], ['STAT3Nm']]
+DEBUG:Atomization:added induced naming convention [['STAT'], ['STAT1N']]
+DEBUG:Atomization:added relationship to existing convention [['STAT3'], ['STAT3Cm']]
+INFO:Atomization:common root STAT3=STAT3Cm:STAT3Nm
+DEBUG:Atomization:added relationship to existing convention [['STAT3'], [u'STAT3Nm']]
+INFO:Atomization:common root STAT3=STAT3Cm:STAT3Nm
+DEBUG:Atomization:inverting order of [['SHP2m'], ['SHP2']] for lexical analysis
+DEBUG:Atomization:added induced naming convention [[u'MEK_P'], ['MEK_PP']]
+DEBUG:Atomization:added relationship to existing convention [['MEK'], ['MEK_PP']]
+DEBUG:Atomization:inverting order of [['CEBPi'], ['CEBP']] for lexical analysis
+INFO:Atomization:common root STAT1=STAT1Cm:STAT1Nm
+INFO:Atomization:common root STAT1=STAT1Cm:STAT1Nm
+INFO:Atomization:common root STAT1=STAT1Cm:STAT1Nm
+INFO:Atomization:common root STAT3=STAT3Cm:STAT3Nm
+WARNING:Atomization:For species Phosp3, candidates [['Phosp2'], ['PP2']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['Phosp2'] based on longest partial match
+INFO:Atomization:Phosp1 was determined to be the same as [['PP1']] according to annotation information.
+INFO:Atomization:Phosp2 was determined to be the same as [['PP2']] according to annotation information.
+INFO:Atomization:Phosp3 was determined to be the same as [['Phosp2']] according to annotation information.
+WARNING:Atomization:For species MEK_P_Rafm, candidates [['MEK_P', 'Rafm'], ['MEK', 'Rafm']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['MEK_P', 'Rafm'] based on longest partial match
+WARNING:Atomization:For species ERK_P_MEK_PP, candidates [['ERK_P', 'MEK_PP'], ['ERK', 'MEK_PP']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['ERK_P', 'MEK_PP'] based on longest partial match
+WARNING:Atomization:For species __IFN_R_JAK__2m_STAT1Cm, candidates [[u'IFN', u'IFN', u'JAKm', u'JAKm', u'R', u'R', 'STAT1Cm'], [u'IFN', u'IFN', u'JAKm', u'JAKm', u'R', u'R', u'STAT1C']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting [u'IFN', u'IFN', u'JAKm', u'JAKm', u'R', u'R', 'STAT1Cm'] based on longest partial match
+WARNING:Atomization:For species __IFN_R_JAK__2m_STAT3Cm, candidates [[u'IFN', u'IFN', u'JAKm', u'JAKm', u'R', u'R', 'STAT3Cm'], [u'IFN', u'IFN', u'JAKm', u'JAKm', u'R', u'R', u'STAT3C']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting [u'IFN', u'IFN', u'JAKm', u'JAKm', u'R', u'R', 'STAT3Cm'] based on longest partial match
+WARNING:Atomization:For species __IL6_gp80_gp130_JAK__2m_SHP2m, candidates [['IL6', 'IL6', u'JAKm', u'JAKm', 'SHP2m', u'gp130', u'gp130', 'gp80', 'gp80'], ['IL6', 'IL6', u'JAKm', u'JAKm', 'SHP2', u'gp130', u'gp130', 'gp80', 'gp80']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['IL6', 'IL6', u'JAKm', u'JAKm', 'SHP2m', u'gp130', u'gp130', 'gp80', 'gp80'] based on longest partial match
+WARNING:Atomization:For species __IL6_gp80_gp130_JAK__2m_STAT1m, candidates [['IL6', 'IL6', u'JAKm', u'JAKm', 'STAT1Cm', u'gp130', u'gp130', 'gp80', 'gp80'], ['IL6', 'IL6', u'JAKm', u'JAKm', u'STAT1C', u'gp130', u'gp130', 'gp80', 'gp80']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['IL6', 'IL6', u'JAKm', u'JAKm', 'STAT1Cm', u'gp130', u'gp130', 'gp80', 'gp80'] based on longest partial match
+WARNING:Atomization:For species __IL6_gp80_gp130_JAK__2m_STAT3Cm, candidates [['IL6', 'IL6', u'JAKm', u'JAKm', 'STAT3Cm', u'gp130', u'gp130', 'gp80', 'gp80'], ['IL6', 'IL6', u'JAKm', u'JAKm', u'STAT3C', u'gp130', u'gp130', 'gp80', 'gp80']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['IL6', 'IL6', u'JAKm', u'JAKm', 'STAT3Cm', u'gp130', u'gp130', 'gp80', 'gp80'] based on longest partial match
+WARNING:Atomization:For species __IL6_gp80_gp130_JAK__2m_SHP2m_Grb2_SOS_Ras_GTP, candidates [['Grb2', 'IL6', 'IL6', u'JAKm', u'JAKm', 'Ras_GTPm', 'SHP2m', 'SOS', u'gp130', u'gp130', 'gp80', 'gp80'], ['Grb2', 'IL6', 'IL6', u'JAKm', u'JAKm', 'Ras_GTP', 'SHP2m', 'SOS', u'gp130', u'gp130', 'gp80', 'gp80']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['Grb2', 'IL6', 'IL6', u'JAKm', u'JAKm', 'Ras_GTP', 'SHP2m', 'SOS', u'gp130', u'gp130', 'gp80', 'gp80'] based on longest partial match
+WARNING:ATOMIZATION:adding forced transformation: PP1:[['PP1']]:Phosp1
+WARNING:ATOMIZATION:adding forced transformation: PP2:[['PP2']]:Phosp2
+WARNING:ATOMIZATION:adding forced transformation: Ras:[[u'Ras']]:Ras_GTP
+WARNING:ATOMIZATION:adding forced transformation: Ras:[[u'Ras']]:Ras_GDP
+WARNING:ATOMIZATION:adding forced transformation: PP2:[['Phosp2']]:Phosp3
+CRITICAL:ATOMIZATION:unregistered modification: Phosp3:[['Phosp2']]
+WARNING:ATOMIZATION:adding forced transformation: Ras:[['Ras_GTP']]:Ras_GTPm
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species IFN_R_JAK
+WARNING:Atomization:Redundant bonds detected between molecules [u'STAT1', 'PP1', u'STAT3'] in species PP1_STAT1Cm_STAT3Cm
+WARNING:Atomization:Redundant bonds detected between molecules [u'STAT1', 'PP2', u'STAT3'] in species PP2_STAT1Nm_STAT3Nm
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_SHP2
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_SHP2
+DEBUG:Atomization:Binding information found in BioGrid/Pathwaycommons for for JAK-SHP2
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_SOCS1
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_SOCS1
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C
+INFO:Atomization:According to BioGrid/Pathwaycommons there's more than one way to bind ['R', 'JAK', 'JAK', 'R', 'IFN', 'IFN'] and ['STAT1'] together: [('JAK', 'STAT1'), ('IFN', 'STAT1'), ('R', 'STAT1')]. Defaulting to JAK-STAT1
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT3C
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT3C
+INFO:Atomization:According to BioGrid/Pathwaycommons there's more than one way to bind ['R', 'JAK', 'IFN', 'IFN', 'JAK', 'R'] and ['STAT3'] together: [('JAK', 'STAT3'), ('IFN', 'STAT3')]. Defaulting to JAK-STAT3
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1Cm
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1Cm
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT3Cm
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT3Cm
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_SHP2
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_SHP2
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_SOCS1
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_SOCS1
+WARNING:Atomization:Redundant bonds detected between molecules [u'JAK', u'STAT1', u'STAT3'] in species __IFN_R_JAK__2m_STAT1C_STAT3C
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_STAT3C
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_STAT3C
+DEBUG:Atomization:Binding information found in BioGrid/Pathwaycommons for for SOCS3-gp130
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_SHP2_SOCS1
+WARNING:Atomization:Redundant bonds detected between molecules [u'R', u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_SHP2_SOCS1
+WARNING:Atomization:Redundant bonds detected between molecules [u'JAK', u'STAT1', u'STAT3'] in species __IL6_gp80_gp130_JAK__2m_STAT1C_STAT3C
+WARNING:Atomization:We don't know how ['SOS', u'IL6', 'Grb2', u'JAK', u'gp130', u'gp80', u'IL6', u'SHP2', u'gp130', u'gp80', u'JAK'] and [u'Ras'] bind together and there's no relevant BioGrid/Pathway commons information. Defaulting to largest pair : JAK-Ras
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Summary:File contains 22 molecules out of 111 original SBML species
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1Cm is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_SHP2 is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_STAT3C is not likely
+INFO:Atomization:Used context information to determine that the bond [u'STAT1', u'STAT3'] in species __IL6_gp80_gp130_JAK__2m_STAT1C_STAT3C is not likely
+INFO:Atomization:Used context information to determine that the bond [u'STAT1', u'STAT3'] in species __IFN_R_JAK__2m_STAT1C_STAT3C is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT3C is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m_SHP2 is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m_SOCS1 is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_SOCS1 is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2 is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT3Cm is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species IFN_R_JAK is not likely
+INFO:Atomization:Used context information to determine that the bond [u'IFN', u'JAK'] in species __IFN_R_JAK__2m_STAT1C_SHP2_SOCS1 is not likely
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Translation:Exchanging reference to compartment c2 for its dimensions
+INFO:Summary:File contains 22 molecules out of 111 original SBML species
+WARNING:ContextAnalysis:Species with suspect context information were found. Information is being dumped to egfr/output543.bngl_context.log

@@ -1,0 +1,639 @@
+###
+#@notes:'This is an atomized translation of an SBML model created on 14/09/2015. The original model has 116 molecules and 133 reactions. The translated model has 40 molecules and 133 rules'
+#@BQM_IS:['http://identifiers.org/biomodels.db/MODEL0975191032']
+#@BQM_IS_DESCRIBED_BY:['http://identifiers.org/pubmed/18762202']
+#@creatorEmail:'lukas@ebi.ac.uk'
+#@creatorName:'Endler Lukas'
+###
+begin model
+begin parameters
+	r1_k67 1.000000
+	r1_k67r 10.000000
+	r2_k65 45.000000
+	r2_k65r 1.000000
+	r3_k66 0.092000
+	r4_k54 6.000000
+	r5_k53 1.916100
+	r5_k53r 24.000000
+	r6_k72 10.000000
+	r7_k71 3.900000
+	r7_k71r 40.000000
+	r8_k8_2a 0.010000
+	r9_k50 0.105000
+	r10_k49 3.280000
+	r10_k49r 0.420000
+	r11_k58 6.000000
+	r12_k57 1.920000
+	r12_k57r 24.000000
+	r13_k82 1.000000
+	r14_k64 5.000000
+	r15_k63 31.562500
+	r15_k63r 20.200000
+	r16_k70 0.086000
+	r16_k70r 1.100000
+	r17_k69 0.500000
+	r18_k68 10.000000
+	r18_k68r 1.000000
+	r19_k76 6.000000
+	r20_k52 6.000000
+	r21_k51 1.916100
+	r21_k51r 24.000000
+	r22_k75 1.950000
+	r22_k75r 40.000000
+	r23_k62 15.000000
+	r24_k59 20.000000
+	r24_k59r 1.000000
+	r25_k60 0.010000
+	r26_k83 6.000000
+	r26_k83r 0.100000
+	r27_k61 3.200000
+	r27_k61r 1.000000
+	r28_k74 1.000000
+	r28_k74r 0.100000
+	r29_k46 0.125000
+	r30_k56 6.000000
+	r31_k55 1.920000
+	r31_k55r 24.000000
+	r32_k48 0.105000
+	r33_k47 3.280000
+	r33_k47r 0.420000
+	r34_k41 10.000000
+	r34_Km41 1.010000
+	r35_k45 24.000000
+	r35_k45r 0.500000
+	r36_k44 0.000160
+	r36_k44r 0.000120
+	r37_k10_2a 8.330000
+	r38_k9_2a 20.830000
+	r38_k9r_2a 33.320000
+	r39_k7_2a 0.000100
+	r40_k6_2a 6.000000
+	r41_k4_2a 1.000000
+	r41_k4r_2a 0.004667
+	r42_k3_2a 1.000000
+	r42_k3r_2a 1.670000
+	r43_k1_2a 1.000000
+	r43_k1r_2a 2.500000
+	r44_k2_2a 1.000000
+	r44_k2r_2a 0.007000
+	r45_k73 0.170000
+	r46_kt_2a 0.000000
+	r46_Vr_2a 0.000000
+	r47_kh_2a 0.000024
+	r48_v6_2a 0.005000
+	r48_v6r_2a 0.000050
+	r49_v62_2a 0.000667
+	r50_ke_2a 0.002350
+	r51_k5_2a 0.040000
+	r52_k11_2a 2.520000
+	r52_k11r_2a 1.000000
+	r53_k12_2a 3.000000
+	r53_k12r_2a 1.000000
+	r54_k14_2a 30.000000
+	r54_k14r_2a 1.000000
+	r55_k13_2a 25.200000
+	r55_k13r_2a 1.000000
+	r56_k21_2a 0.600000
+	r56_k21r_2a 0.500000
+	r57_k23_2a 0.008000
+	r57_k23r_2a 8.634800
+	r58_k57_2a 120.000000
+	r58_Km57_2a 20.000000
+	r59_k58_2a 0.001200
+	r59_k58r_2a 0.100000
+	r60_k61_2a 0.000120
+	r60_k61r_2a 0.100000
+	r61_k65_2a 0.100000
+	r61_k65r_2a 0.012000
+	r62_Km83_2a 20.000000
+	r62_k83_2a 36.000000
+	r63_k64_2a 5.400000
+	r63_Km64_2a 20.000000
+	r64_k19_2a 0.140000
+	r64_IP3basal 0.160000
+	r65_k20_2a 0.150000
+	r66_k33_2a 0.100000
+	r67_k38_2a 4.000000
+	r67_Km38_2a 3.330000
+	r68_k36_2a 1.000000
+	r69_Km40_2a 3.330000
+	r69_k40_2a 4.000000
+	r70_Km39_2a 3.330000
+	r70_k39_2a 4.000000
+	r71_k32_2a 4.000000
+	r71_Km32_2a 3.330000
+	r72_k41_2a 4.000000
+	r72_Km41_2a 3.330000
+	r73_Km43_2a 3.330000
+	r73_k43_2a 4.000000
+	r74_Km42_2a 3.330000
+	r74_k42_2a 4.000000
+	r75_k35_2a 4.000000
+	r75_Km35_2a 3.330000
+	r76_k80_2a 0.500000
+	r76_k80r_2a 0.001200
+	r77_k84_2a 11.040000
+	r77_Km84_2a 20.000000
+	r78_Km16_2a 40.130000
+	r78_k16_2a 10.000000
+	r79_Km17_2a 5.000000
+	r79_k17_2a 48.000000
+	r80_k22_2a 0.100000
+	r80_k22r_2a 0.000599
+	r81_k24_2a 1.000000
+	r81_k24r_2a 0.100000
+	r82_k59_2a 0.018000
+	r82_k59r_2a 2.000000
+	r83_k60_2a 2.000000
+	r83_k60r_2a 0.200000
+	r84_k15_2a 0.013300
+	r85_k79_2a 0.400000
+	r86_k_PA 1.000000
+	r87_k29_2a 4.000000
+	r87_Km29_2a 66.670000
+	r88_Km30_2a 66.670000
+	r88_k30_2a 4.000000
+	r89_Km31_2a 66.670000
+	r89_k31_2a 4.000000
+	r90_Km25_2a 66.670000
+	r90_k25_2a 4.000000
+	r91_k22 35.000000
+	r91_k22r 1.000000
+	r92_k23 0.250000
+	r93_k24 0.781300
+	r93_k24r 2.500000
+	r94_k25 0.625000
+	r95_k26 1.614300
+	r95_k26r 4.520000
+	r96_k27 1.130000
+	r97_k30 2.330000
+	r97_k30r 56.000000
+	r98_k31 14.000000
+	r99_k28 3.200000
+	r99_k28r 51.200000
+	r100_k29 12.800000
+	r101_k79 0.100000
+	r102_ke 0.002350
+	r103_v62 0.000667
+	r104_v6 0.005000
+	r104_v6r 0.000050
+	r105_kh 0.000024
+	r106_Vr 0.000000
+	r106_kt 0.000000
+	r107_k2 100.000000
+	r107_k2r 0.100000
+	r108_k1 0.450000
+	r108_k1r 0.100000
+	r109_k3 0.059900
+	r109_k3r 0.100000
+	r110_k4 13.330000
+	r110_k4r 0.100000
+	r111_k6 6.000000
+	r112_k7 0.000100
+	r113_k5 0.025000
+	r114_k9 20.830000
+	r114_k9r 33.320000
+	r115_k10 8.330000
+	r116_k8 0.066700
+	r117_k36 3.000000
+	r117_k36r 0.100000
+	r118_k35 10.000000
+	r118_k35r 0.021400
+	r119_k34 9.000000
+	r119_k34r 0.042900
+	r120_k37 30.000000
+	r120_k37r 0.064000
+	r121_k39 2.000000
+	r121_k39r 21.000000
+	r122_k78 1.000000
+	r123_k38 0.001500
+	r123_k38r 0.100000
+	r124_kmdd 2.564000
+	r124_kdd 1.000000
+	r125_kcat_bysrc 1.600000
+	r125_km_bysrc 8.000000
+	r126_Km_33 0.340000
+	r126_Vm_33 0.170000
+	r127_k42 0.200000
+	r127_k42r 0.080000
+	r128_k43 0.020000
+	r129_k37_2a 0.020000
+	r129_km37_2a 0.505050
+	r130_k1_ant 1.000000
+	r130_k1r_ant 2.500000
+	r131_k2_ant 1.000000
+	r131_k2r_ant 2.500000
+	r132_kant_KRbindsG 1.000000
+	r132_krant_KRbindsG 1.670000
+	r133_k_ant_split 0.000100
+end parameters
+begin compartments
+	cell  3  1.0
+end compartments
+begin molecule types
+	TCB(ht2ar)
+	MKP(_PPmod~_PP~0,erk,starmod~STAR~0)
+	Ca(pkc,pla2,plcb)
+	PLA2(ca,erk,pi,starmod~STAR~0)
+	ERK(Pmod~P~0,_Pmod~_P~0,cpxmod~CPX~0,mek,mkp,pla2,raf)
+	PP2A(mek,raf)
+	MEK(Pmod~P~0,_Pmod~_P~0,cpxmod~CPX~0,erk,pp2a,raf)
+	Raf(cpxmod~CPX~0,cpxstarmod~CPXSTAR~0,erk,mek,pp2a,ras,starmod~STAR~0~STARSTAR)
+	Pi()
+	RGS4(gq_a)
+	ht2AR(genericMod~ht2AR_internal~0,gq_a,ketanserin,tcb)
+	A_2AR_i_deg()
+	Gq_betagamma(gq_a)
+	PLCb(ca,gq_a)
+	IP3()
+	DAG(Pmod~P~0,genericMod~DAGactive~0,pkc)
+	PKC(aa,ca,dag)
+	APC()
+	AA(genericMod~AAactive~0,pkc)
+	PI(P2mod~P2~0,P3mod~P3~0,pi3k,pla2,pten,src)
+	PIP()
+	PI3K(gi_betagamma,pi,starmod~STAR~0)
+	Src(_starmod~_STAR~0,cpxmod~CPX~0,csk,pi)
+	Csk(cpxmod~CPX~0,src)
+	PTEN(cpxmod~CPX~0,pi)
+	A_HT1R_i_deg()
+	HT1AR(cpxmod~CPX~0,genericMod~HT1AR_internal~0~ht1AR_internal,gi_a,serotonin)
+	Gi_betagamma(gi_a,pi3k)
+	RGS4_1(gi_a)
+	Shc(_starmod~_STAR~0,grb2,ras)
+	serotonin(ht1ar)
+	Grb2(shc,sos)
+	Sos(_Pmod~_P~0,grb2)
+	Ketanserin(cpxmod~CPX~0,ht2ar)
+	productX()
+	Ras(GAPmod~GAP~0,GEFmod~GEF~0,GTPmod~GTP~0,_starmod~_STAR~0,cpxmod~CPX~0,genericMod~RasGDP~0,raf,shc)
+	Gq_a(GTPmod~GTP~0,_GDPmod~_GDP~0,_mod~_~0,gq_betagamma,ht2ar,plcb,rgs4)
+	m__2AR()
+	RasG()
+	Gi_a(GTPmod~GTP~0,_GDPmod~_GDP~0,_mod~_~0,gi_betagamma,ht1ar,rgs4_1)
+end molecule types
+begin seed species
+	@cell:TCB(ht2ar)@cell 0.01 #TCB #TCB
+	@cell:ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) 0.010263 #cpxERK_PP_MKP_PP #cpxERK_PP_MKP_PP
+	@cell:ERK(Pmod~P,_Pmod~0,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) 0.003791 #cpxERKP_MKP_PP #cpxERKP_MKP_PP
+	@cell:ERK(Pmod~P,_Pmod~0,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~STAR) 0.0018979 #cpxERKP_MKP_PPstar #cpxERKP_MKP_PPstar
+	@cell:Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STARSTAR) 0.0021849 #Rafstarstar #Rafstarstar
+	@cell:MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a!12,raf).PP2A(mek!12,raf) 0.00030847 #cpxMEKPP_PP2A #cpxMEKPP_PP2A
+	@cell:Raf(cpxmod~0,cpxstarmod~CPXSTAR,erk,mek,pp2a!25,ras,starmod~STAR).PP2A(mek,raf!25) 2.2131e-05 #cpxRafstarstar_PP2A #cpxRafstarstar_PP2A
+	@cell:Raf(cpxmod~0,cpxstarmod~0,erk!29,mek,pp2a,ras,starmod~STAR).ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf!29) 2.2131e-05 #cpxERKPP_Rafstar #cpxERKPP_Rafstar
+	@cell:Raf(cpxmod~CPX,cpxstarmod~0,erk,mek,pp2a!25,ras,starmod~STAR).PP2A(mek,raf!25) 0.00058373 #cpxRafstar_PP2A #cpxRafstar_PP2A
+	@cell:ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) 0.0090591 #ERK_PP #ERK_PP
+	@cell:ERK(Pmod~0,_Pmod~_P,cpxmod~0,mek!27,mkp,pla2,raf).MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk!27,pp2a,raf) 6.2945e-05 #cpxERKP_MEKPP #cpxERKP_MEKPP
+	@cell:ERK(Pmod~0,_Pmod~0,cpxmod~CPX,mek!27,mkp,pla2,raf).MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk!27,pp2a,raf) 0.094895 #cpxERK_MEK_PP #cpxERK_MEK_PP
+	@cell:MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a,raf) 0.030392 #MEK_PP #MEK_PP
+	@cell:ERK(Pmod~0,_Pmod~0,cpxmod~CPX,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) 0.066479 #cpxERK_MKP_PP #cpxERK_MKP_PP
+	@cell:MKP(_PPmod~0,erk,starmod~0) 0.48458 #MKP #MKP
+	@cell:PLA2(ca!2,erk,pi,starmod~STAR).Ca(pkc,pla2!2,plcb) 3.1036e-05 #PLA2star_Ca #PLA2star_Ca
+	@cell:PLA2(ca!2,erk,pi,starmod~0).Ca(pkc,pla2!2,plcb) 0.00012445 #PLA2_Ca #PLA2_Ca
+	@cell:ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~0,erk!20,starmod~0) 0.0054982 #cpxERKPP_MKP #cpxERKPP_MKP
+	@cell:PLA2(ca,erk,pi,starmod~STAR) 1.489e-05 #PLA2star #PLA2star
+	@cell:ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2!26,raf).PLA2(ca,erk!26,pi,starmod~0) 2.5313e-07 #cpxERKPP_PLA2star #cpxERKPP_PLA2star
+	@cell:Ca(pkc,pla2,plcb) 0.034739 #Ca #Ca
+	@cell:PLA2(ca,erk,pi,starmod~0) 0.00035823 #PLA2 #PLA2
+	@cell:MKP(_PPmod~_PP,erk,starmod~0) 0.027491 #MKP_PP #MKP_PP
+	@cell:ERK(Pmod~0,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) 0.010356 #ERK_P #ERK_P
+	@cell:ERK(Pmod~0,_Pmod~0,cpxmod~0,mek,mkp,pla2,raf) 0.15768 #ERK #ERK
+	@cell:Raf(cpxmod~0,cpxstarmod~0,erk,mek!24,pp2a,ras,starmod~STAR).MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a,raf!24) 0.017627 #cpxMEKP_Rafstar #cpxMEKP_Rafstar
+	@cell:MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a!12,raf).PP2A(mek!12,raf) 0.00049691 #cpxMEKP_PP2A #cpxMEKP_PP2A
+	@cell:PP2A(mek,raf) 0.15859 #PP2A #PP2A
+	@cell:MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a,raf) 0.048958 #MEK_P #MEK_P
+	@cell:Raf(cpxmod~0,cpxstarmod~0,erk,mek!24,pp2a,ras,starmod~STAR).MEK(Pmod~0,_Pmod~0,cpxmod~CPX,erk,pp2a,raf!24) 0.028395 #cpxMEK_Rafstar #cpxMEK_Rafstar
+	@cell:MEK(Pmod~0,_Pmod~0,cpxmod~0,erk,pp2a,raf) 0.078866 #MEK #MEK
+	@cell:Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) 0.057628 #Rafstar #Rafstar
+	@cell:Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~CPX,genericMod~0,raf!23,shc).Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras!23,starmod~0) 0.023412 #cpxRasGTP_Raf #cpxRasGTP_Raf
+	@cell:Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~0) 0.030124 #Raf #Raf
+	@cell:Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~0,genericMod~0,raf,shc) 0.02024 #RasGTP #RasGTP
+	@cell:Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) 0.00041421 #RasGAP #RasGAP
+	@cell:Ras(GAPmod~0,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~RasGDP,raf,shc) 0.076348 #RasGDP #RasGDP
+	@cell:$PI(P2mod~P2,P3mod~0,pi3k,pla2,pten,src) 2.6578 #PIP2 #PIP2
+	@cell:Pi() 618.69 #Pi #Pi
+	@cell:RGS4(gq_a) 0.019994 #RGS4 #RGS4
+	@cell:Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4!16).RGS4(gq_a!16) 6.4168e-06 #cpxRGS4_Gq_a_GTP #cpxRGS4_Gq_a_GTP
+	@cell:Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin,tcb).Gq_betagamma(gq_a!11) 0.37759 #cpx2AR_Gqtrimer #cpx2AR_Gqtrimer
+	@cell:ht2AR(genericMod~0,gq_a,ketanserin,tcb) 1.0192 #ht2AR #ht2AR
+	@cell:ht2AR(genericMod~ht2AR_internal,gq_a,ketanserin,tcb) 0.010192 #ht2AR_internal #ht2AR_internal
+	@cell:Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar,plcb,rgs4).Gq_betagamma(gq_a!11) 0.61869 #Gq_trimer #Gq_trimer
+	@cell:Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4) 0.00064172 #Gq_a_GTP #Gq_a_GTP
+	@cell:Gq_betagamma(gq_a) 0.0037173 #Gq_betagamma #Gq_betagamma
+	@cell:Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma,ht2ar,plcb,rgs4) 0.0027739 #Gq_a_GDP #Gq_a_GDP
+	@cell:PLCb(ca,gq_a) 0.090022 #PLCb #PLCb
+	@cell:Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb!14,rgs4).PLCb(ca,gq_a!14) 0.00014492 #PLCb_Gq_a_GTP #PLCb_Gq_a_GTP
+	@cell:Ca(pkc,pla2,plcb!3).PLCb(ca!3,gq_a) 0.0093825 #PLCb_Ca #PLCb_Ca
+	@cell:Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb!14,rgs4).Ca(pkc,pla2,plcb!3).PLCb(ca!3,gq_a!14) 0.00015038 #PLCb_Ca_Gq_a_GTP #PLCb_Ca_Gq_a_GTP
+	@cell:IP3() 0.21952 #IP3 #IP3
+	@cell:DAG(Pmod~0,genericMod~0,pkc) 0.055555 #DAG #DAG
+	@cell:PKC(aa,ca,dag) 0.062951 #PKC #PKC
+	@cell:Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag) 0.0026242 #PKC_Ca #PKC_Ca
+	@cell:DAG(Pmod~0,genericMod~0,pkc!4).PKC(aa,ca,dag!4) 0.58385 #PKC_DAG #PKC_DAG
+	@cell:PKC(aa!1,ca,dag!4).DAG(Pmod~0,genericMod~0,pkc!4).AA(genericMod~0,pkc!1) 0.031811 #PKC_DAG_AA #PKC_DAG_AA
+	@cell:APC() 23.496 #APC #APC
+	@cell:AA(genericMod~0,pkc) 6.0539 #AA #AA
+	@cell:Ca(pkc!0,pla2,plcb).PKC(aa!1,ca!0,dag).AA(genericMod~0,pkc!1) 0.00019064 #PKC_Ca_AA #PKC_Ca_AA
+	@cell:PKC(aa!1,ca,dag).AA(genericMod~0,pkc!1) 0.00045732 #PKC_AA #PKC_AA
+	@cell:PI(P2mod~P2,P3mod~0,pi3k,pla2!10,pten,src).PLA2(ca!2,erk,pi!10,starmod~0).Ca(pkc,pla2!2,plcb) 0.0027563 #PIP2_PLA2_Ca #PIP2_PLA2_Ca
+	@cell:Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) 0.072743 #RasGEF #RasGEF
+	@cell:Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) 0.027257 #RasGEF_star #RasGEF_star
+	@cell:Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) 0.0015858 #RasGAP_star #RasGAP_star
+	@cell:PI(P2mod~P2,P3mod~0,pi3k,pla2!10,pten,src).PLA2(ca,erk,pi!10,starmod~0) 0.39671 #PIP2_PLA2 #PIP2_PLA2
+	@cell:Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag!4).DAG(Pmod~0,genericMod~0,pkc!4) 1.3507e-07 #PKC_Ca_DAG #PKC_Ca_DAG
+	@cell:Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag!4).DAG(Pmod~0,genericMod~DAGactive,pkc!4) 1.3507e-06 #PKC_Ca_DAGactive #PKC_Ca_DAGactive
+	@cell:PKC(aa!1,ca,dag!4).DAG(Pmod~0,genericMod~0,pkc!4).AA(genericMod~AAactive,pkc!1) 0.31811 #PKC_DAG_AAactive #PKC_DAG_AAactive_1
+	@cell:DAG(Pmod~P,genericMod~0,pkc) 83332.0 #PA #PA
+	@cell:PI(P2mod~0,P3mod~0,pi3k,pla2,pten,src) 94.922 #PI #PI
+	@cell:PIP() 1.8983 #PIP #PIP
+	@cell:PI3K(gi_betagamma,pi,starmod~0) 0.16 #PI3K #PI3K
+	@cell:Src(_starmod~0,cpxmod~0,csk,pi) 0.2 #Src #Src
+	@cell:Csk(cpxmod~0,src) 0.3 #Csk #Csk
+	@cell:PTEN(cpxmod~0,pi) 0.164 #PTEN #PTEN
+	@cell:HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin) 1.6929 #HT1AR #HT1AR
+	@cell:Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar,rgs4_1).Gi_betagamma(gi_a!9,pi3k) 1.0 #Gitrimer #Gitrimer
+	@cell:RGS4_1(gi_a) 0.02 #RGS4_1 #RGS4_1
+	@cell:Shc(_starmod~0,grb2,ras) 0.45 #Shc #Shc
+	@cell:Grb2(shc,sos) 0.255 #Grb2 #Grb2
+	@cell:Sos(_Pmod~0,grb2) 0.12 #Sos #Sos
+end seed species
+begin observables
+	Species TCB TCB(ht2ar)@cell #TCB
+	Species cpxERK_PP_MKP_PP ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) #cpxERK_PP_MKP_PP
+	Species cpxERKP_MKP_PP ERK(Pmod~P,_Pmod~0,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) #cpxERKP_MKP_PP
+	Species cpxERKP_MKP_PPstar ERK(Pmod~P,_Pmod~0,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~STAR) #cpxERKP_MKP_PPstar
+	Species Rafstarstar Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STARSTAR) #Rafstarstar
+	Species cpxMEKPP_PP2A MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a!12,raf).PP2A(mek!12,raf) #cpxMEKPP_PP2A
+	Species cpxRafstarstar_PP2A Raf(cpxmod~0,cpxstarmod~CPXSTAR,erk,mek,pp2a!25,ras,starmod~STAR).PP2A(mek,raf!25) #cpxRafstarstar_PP2A
+	Species cpxERKPP_Rafstar Raf(cpxmod~0,cpxstarmod~0,erk!29,mek,pp2a,ras,starmod~STAR).ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf!29) #cpxERKPP_Rafstar
+	Species cpxRafstar_PP2A Raf(cpxmod~CPX,cpxstarmod~0,erk,mek,pp2a!25,ras,starmod~STAR).PP2A(mek,raf!25) #cpxRafstar_PP2A
+	Species ERK_PP ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) #ERK_PP
+	Species cpxERKP_MEKPP ERK(Pmod~0,_Pmod~_P,cpxmod~0,mek!27,mkp,pla2,raf).MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk!27,pp2a,raf) #cpxERKP_MEKPP
+	Species cpxERK_MEK_PP ERK(Pmod~0,_Pmod~0,cpxmod~CPX,mek!27,mkp,pla2,raf).MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk!27,pp2a,raf) #cpxERK_MEK_PP
+	Species MEK_PP MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a,raf) #MEK_PP
+	Species cpxERK_MKP_PP ERK(Pmod~0,_Pmod~0,cpxmod~CPX,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) #cpxERK_MKP_PP
+	Species MKP MKP(_PPmod~0,erk,starmod~0) #MKP
+	Species PLA2star_Ca PLA2(ca!2,erk,pi,starmod~STAR).Ca(pkc,pla2!2,plcb) #PLA2star_Ca
+	Species PLA2_Ca PLA2(ca!2,erk,pi,starmod~0).Ca(pkc,pla2!2,plcb) #PLA2_Ca
+	Species cpxERKPP_MKP ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~0,erk!20,starmod~0) #cpxERKPP_MKP
+	Species PLA2star PLA2(ca,erk,pi,starmod~STAR) #PLA2star
+	Species cpxERKPP_PLA2star ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2!26,raf).PLA2(ca,erk!26,pi,starmod~0) #cpxERKPP_PLA2star
+	Species Ca Ca(pkc,pla2,plcb) #Ca
+	Species PLA2 PLA2(ca,erk,pi,starmod~0) #PLA2
+	Species MKP_PP MKP(_PPmod~_PP,erk,starmod~0) #MKP_PP
+	Species ERK_P ERK(Pmod~0,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) #ERK_P
+	Species ERK ERK(Pmod~0,_Pmod~0,cpxmod~0,mek,mkp,pla2,raf) #ERK
+	Species cpxMEKP_Rafstar Raf(cpxmod~0,cpxstarmod~0,erk,mek!24,pp2a,ras,starmod~STAR).MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a,raf!24) #cpxMEKP_Rafstar
+	Species cpxMEKP_PP2A MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a!12,raf).PP2A(mek!12,raf) #cpxMEKP_PP2A
+	Species PP2A PP2A(mek,raf) #PP2A
+	Species MEK_P MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a,raf) #MEK_P
+	Species cpxMEK_Rafstar Raf(cpxmod~0,cpxstarmod~0,erk,mek!24,pp2a,ras,starmod~STAR).MEK(Pmod~0,_Pmod~0,cpxmod~CPX,erk,pp2a,raf!24) #cpxMEK_Rafstar
+	Species MEK MEK(Pmod~0,_Pmod~0,cpxmod~0,erk,pp2a,raf) #MEK
+	Species Rafstar Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) #Rafstar
+	Species cpxRasGTP_Raf Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~CPX,genericMod~0,raf!23,shc).Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras!23,starmod~0) #cpxRasGTP_Raf
+	Species Raf Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~0) #Raf
+	Species RasGTP Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~0,genericMod~0,raf,shc) #RasGTP
+	Species RasGAP Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) #RasGAP
+	Species RasGDP Ras(GAPmod~0,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~RasGDP,raf,shc) #RasGDP
+	Species PIP2 PI(P2mod~P2,P3mod~0,pi3k,pla2,pten,src) #PIP2
+	Species Pi Pi() #Pi
+	Species RGS4 RGS4(gq_a) #RGS4
+	Species cpxRGS4_Gq_a_GTP Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4!16).RGS4(gq_a!16) #cpxRGS4_Gq_a_GTP
+	Species cpxA_2AR_Gq Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin,tcb!6).TCB(ht2ar!6).Gq_betagamma(gq_a!11) #cpxA_2AR_Gq
+	Species cpx2AR_Gqtrimer Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin,tcb).Gq_betagamma(gq_a!11) #cpx2AR_Gqtrimer
+	Species ht2AR ht2AR(genericMod~0,gq_a,ketanserin,tcb) #ht2AR
+	Species ht2AR_internal ht2AR(genericMod~ht2AR_internal,gq_a,ketanserin,tcb) #ht2AR_internal
+	Species A_2AR_i_deg A_2AR_i_deg() #A_2AR_i_deg
+	Species cpxA_2AR_internal ht2AR(genericMod~ht2AR_internal,gq_a,ketanserin,tcb!6).TCB(ht2ar!6) #cpxA_2AR_internal
+	Species cpxA_2AR ht2AR(genericMod~0,gq_a,ketanserin,tcb!6).TCB(ht2ar!6) #cpxA_2AR
+	Species Gq_trimer Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar,plcb,rgs4).Gq_betagamma(gq_a!11) #Gq_trimer
+	Species Gq_a_GTP Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4) #Gq_a_GTP
+	Species Gq_betagamma Gq_betagamma(gq_a) #Gq_betagamma
+	Species Gq_a_GDP Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma,ht2ar,plcb,rgs4) #Gq_a_GDP
+	Species PLCb PLCb(ca,gq_a) #PLCb
+	Species PLCb_Gq_a_GTP Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb!14,rgs4).PLCb(ca,gq_a!14) #PLCb_Gq_a_GTP
+	Species PLCb_Ca Ca(pkc,pla2,plcb!3).PLCb(ca!3,gq_a) #PLCb_Ca
+	Species PLCb_Ca_Gq_a_GTP Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb!14,rgs4).Ca(pkc,pla2,plcb!3).PLCb(ca!3,gq_a!14) #PLCb_Ca_Gq_a_GTP
+	Species IP3 IP3() #IP3
+	Species DAG DAG(Pmod~0,genericMod~0,pkc) #DAG
+	Species PKC PKC(aa,ca,dag) #PKC
+	Species PKC_Ca Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag) #PKC_Ca
+	Species PKC_DAG DAG(Pmod~0,genericMod~0,pkc!4).PKC(aa,ca,dag!4) #PKC_DAG
+	Species PKC_DAG_AA PKC(aa!1,ca,dag!4).DAG(Pmod~0,genericMod~0,pkc!4).AA(genericMod~0,pkc!1) #PKC_DAG_AA
+	Species APC APC() #APC
+	Species AA AA(genericMod~0,pkc) #AA
+	Species PKC_Ca_AA Ca(pkc!0,pla2,plcb).PKC(aa!1,ca!0,dag).AA(genericMod~0,pkc!1) #PKC_Ca_AA
+	Species PKC_AA PKC(aa!1,ca,dag).AA(genericMod~0,pkc!1) #PKC_AA
+	Species PIP2_PLA2_Ca PI(P2mod~P2,P3mod~0,pi3k,pla2!10,pten,src).PLA2(ca!2,erk,pi!10,starmod~0).Ca(pkc,pla2!2,plcb) #PIP2_PLA2_Ca
+	Species RasGEF Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) #RasGEF
+	Species RasGEF_star Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) #RasGEF_star
+	Species RasGAP_star Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) #RasGAP_star
+	Species PIP2_PLA2 PI(P2mod~P2,P3mod~0,pi3k,pla2!10,pten,src).PLA2(ca,erk,pi!10,starmod~0) #PIP2_PLA2
+	Species PKC_Ca_DAG Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag!4).DAG(Pmod~0,genericMod~0,pkc!4) #PKC_Ca_DAG
+	Species PKC_Ca_DAGactive Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag!4).DAG(Pmod~0,genericMod~DAGactive,pkc!4) #PKC_Ca_DAGactive
+	Species PKC_DAG_AAactive PKC(aa!1,ca,dag!4).DAG(Pmod~0,genericMod~0,pkc!4).AA(genericMod~AAactive,pkc!1) #PKC_DAG_AAactive
+	Species PA DAG(Pmod~P,genericMod~0,pkc) #PA
+	Species PI PI(P2mod~0,P3mod~0,pi3k,pla2,pten,src) #PI
+	Species PIP PIP() #PIP
+	Species PI3K PI3K(gi_betagamma,pi,starmod~0) #PI3K
+	Species Gi_br_PI3K PI3K(gi_betagamma!7,pi,starmod~0).Gi_betagamma(gi_a,pi3k!7) #Gi_br_PI3K
+	Species PI3Kstar PI3K(gi_betagamma,pi,starmod~STAR) #PI3Kstar
+	Species PIP2_PI3Kstar PI(P2mod~P2,P3mod~0,pi3k!22,pla2,pten,src).PI3K(gi_betagamma,pi!22,starmod~STAR) #PIP2_PI3Kstar
+	Species PIP3 PI(P2mod~0,P3mod~P3,pi3k,pla2,pten,src) #PIP3
+	Species Src Src(_starmod~0,cpxmod~0,csk,pi) #Src
+	Species cpxSrc_PIP3 PI(P2mod~0,P3mod~P3,pi3k,pla2,pten,src!19).Src(_starmod~0,cpxmod~CPX,csk,pi!19) #cpxSrc_PIP3
+	Species Src_star Src(_starmod~_STAR,cpxmod~0,csk,pi) #Src_star
+	Species Csk Csk(cpxmod~0,src) #Csk
+	Species cpxCsk_Srcstar Src(_starmod~_STAR,cpxmod~0,csk!15,pi).Csk(cpxmod~0,src!15) #cpxCsk_Srcstar
+	Species PTEN PTEN(cpxmod~0,pi) #PTEN
+	Species cpxPTEN_PIP3 PI(P2mod~0,P3mod~P3,pi3k,pla2,pten!21,src).PTEN(cpxmod~CPX,pi!21) #cpxPTEN_PIP3
+	Species cpxA_HT1AR_internal HT1AR(cpxmod~0,genericMod~ht1AR_internal,gi_a,serotonin!8).serotonin(ht1ar!8) #cpxA_HT1AR_internal
+	Species A_HT1R_i_deg A_HT1R_i_deg() #A_HT1R_i_deg
+	Species HT1AR_internal HT1AR(cpxmod~0,genericMod~HT1AR_internal,gi_a,serotonin) #HT1AR_internal
+	Species HT1AR HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin) #HT1AR
+	Species cpxA_HT1AR HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin!8).serotonin(ht1ar!8) #cpxA_HT1AR
+	Species Gitrimer Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar,rgs4_1).Gi_betagamma(gi_a!9,pi3k) #Gitrimer
+	Species cpxHT1AR_Gitrimer Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar!30,rgs4_1).HT1AR(cpxmod~CPX,genericMod~0,gi_a!30,serotonin).Gi_betagamma(gi_a!9,pi3k) #cpxHT1AR_Gitrimer
+	Species cpxA_R1A_Gi Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar!30,rgs4_1).HT1AR(cpxmod~CPX,genericMod~0,gi_a!30,serotonin!8).Gi_betagamma(gi_a!9,pi3k).serotonin(ht1ar!8) #cpxA_R1A_Gi
+	Species Gi_betagamma Gi_betagamma(gi_a,pi3k) #Gi_betagamma
+	Species Gi_a_GTP Gi_a(GTPmod~GTP,_GDPmod~0,_mod~_,gi_betagamma,ht1ar,rgs4_1) #Gi_a_GTP
+	Species Gi_a_GDP Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma,ht1ar,rgs4_1) #Gi_a_GDP
+	Species cpxRGS4_Gi_a_GTP_1 Gi_a(GTPmod~GTP,_GDPmod~0,_mod~_,gi_betagamma,ht1ar,rgs4_1!18).RGS4_1(gi_a!18) #cpxRGS4_Gi_a_GTP_1
+	Species RGS4_1 RGS4_1(gi_a) #RGS4_1
+	Species Shc Shc(_starmod~0,grb2,ras) #Shc
+	Species serotonin serotonin(ht1ar) #serotonin
+	Species Grb2 Grb2(shc,sos) #Grb2
+	Species Sos Sos(_Pmod~0,grb2) #Sos
+	Species Shc_star Shc(_starmod~_STAR,grb2,ras) #Shc_star
+	Species Shcstar_Grb2 Shc(_starmod~_STAR,grb2!13,ras).Grb2(shc!13,sos) #Shcstar_Grb2
+	Species Grb2_sos Sos(_Pmod~0,grb2!5).Grb2(shc,sos!5) #Grb2_sos
+	Species Shcstar_Grb2_Sos Shc(_starmod~_STAR,grb2!13,ras).Sos(_Pmod~0,grb2!5).Grb2(shc!13,sos!5) #Shcstar_Grb2_Sos
+	Species cpxRasGDP_Shcstar_Grb2_Sos Ras(GAPmod~0,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~RasGDP,raf,shc!31).Shc(_starmod~_STAR,grb2!13,ras!31).Sos(_Pmod~0,grb2!5).Grb2(shc!13,sos!5) #cpxRasGDP_Shcstar_Grb2_Sos
+	Species Grb2_sos_P Sos(_Pmod~_P,grb2!5).Grb2(shc,sos!5) #Grb2_sos_P
+	Species Ketanserin Ketanserin(cpxmod~0,ht2ar) #Ketanserin
+	Species cpxKetanserin_2AR ht2AR(genericMod~0,gq_a,ketanserin!17,tcb).Ketanserin(cpxmod~CPX,ht2ar!17) #cpxKetanserin_2AR
+	Species cpxKetanserin_2ARGq Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin!17,tcb).Ketanserin(cpxmod~CPX,ht2ar!17).Gq_betagamma(gq_a!11) #cpxKetanserin_2ARGq
+	Species productX productX() #productX
+end observables
+begin functions
+	functionRate33() = 10.0 * RasGAP / (1.01 + RasGTP)
+	functionRate57() = 120.0 * PLA2star_Ca / (20.0 + APC)
+	functionRate61() = 36.0 * PIP2_PLA2_Ca / (20.0 + APC)
+	functionRate62() = 5.4 * PLA2star_Ca / (20.0 + APC)
+	functionRate63() = if(IP3>0, 0.14 * (IP3 -0.16)/IP3,0)
+	functionRate66() = 4.0 * PKC_Ca_DAGactive / (3.33 + RasGAP)
+	functionRate68() = 4.0 * PKC_AA / (3.33 + RasGAP)
+	functionRate69() = 4.0 * PKC_Ca_AA / (3.33 + RasGAP)
+	functionRate70() = 4.0 * PKC_DAG_AAactive / (3.33 + RasGAP)
+	functionRate71() = 4.0 * PKC_Ca_DAGactive / (3.33 + RasGEF)
+	functionRate72() = 4.0 * PKC_AA / (3.33 + RasGEF)
+	functionRate73() = 4.0 * PKC_Ca_AA / (3.33 + RasGEF)
+	functionRate74() = 4.0 * PKC_DAG_AAactive / (3.33 + RasGEF)
+	functionRate76() = 11.04 * PIP2_PLA2 / (20.0 + APC)
+	functionRate77() = 10.0 * PLCb_Ca / (40.13 + PIP2)
+	functionRate78() = 48.0 * PLCb_Ca_Gq_a_GTP / (5.0 + PIP2)
+	functionRate86() = 4.0 * PKC_Ca_DAGactive / (66.67 + Raf)
+	functionRate87() = 4.0 * PKC_Ca_AA / (66.67 + Raf)
+	functionRate88() = 4.0 * PKC_AA / (66.67 + Raf)
+	functionRate89() = 4.0 * PKC_DAG_AAactive / (66.67 + Raf)
+	functionRate123() = 1.0 * ERK_PP / (2.564 + Shcstar_Grb2_Sos)
+	functionRate124() = 1.6 * Src_star / (8.0 + Shc)
+	functionRate125() = 0.17 / (0.34 + Shc_star)
+	functionRate128() = 0.02 * RasGEF_star / (0.50505 + RasGDP)
+end functions
+begin reaction rules
+	v57_w3: ERK(Pmod~P,_Pmod~0,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) <-> ERK(Pmod~0,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) + MKP(_PPmod~_PP,erk,starmod~0) r1_k67,r1_k67r
+	v56_w1: MKP(_PPmod~_PP,erk,starmod~0) + ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) <-> ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) r2_k65,r2_k65r
+	w2: ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) -> ERK(Pmod~P,_Pmod~0,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) r3_k66
+	releaseRafstarstar: Raf(cpxmod~0,cpxstarmod~CPXSTAR,erk,mek,pp2a!25,ras,starmod~STAR).PP2A(mek,raf!25) -> PP2A(mek,raf) + Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) r4_k54
+	PP2Abinds_Rafstarstar: Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STARSTAR) + PP2A(mek,raf) <-> Raf(cpxmod~0,cpxstarmod~CPXSTAR,erk,mek,pp2a!25,ras,starmod~STAR).PP2A(mek,raf!25) r5_k53,r5_k53r
+	releasePLA2star: ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2!26,raf).PLA2(ca,erk!26,pi,starmod~0) -> PLA2(ca,erk,pi,starmod~STAR) + ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) r6_k72
+	ERKPPbinds_PLA2: PLA2(ca,erk,pi,starmod~0) + ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) <-> ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2!26,raf).PLA2(ca,erk!26,pi,starmod~0) r7_k71,r7_k71r
+	basal_Gq_a_GTP_split_rx: Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4) -> Pi() + Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma,ht2ar,plcb,rgs4) r8_k8_2a
+	v47_89: Raf(cpxmod~0,cpxstarmod~0,erk,mek!24,pp2a,ras,starmod~STAR).MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a,raf!24) -> Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) + MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a,raf) r9_k50
+	v46_88: Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) + MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a,raf) <-> Raf(cpxmod~0,cpxstarmod~0,erk,mek!24,pp2a,ras,starmod~STAR).MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a,raf!24) r10_k49,r10_k49r
+	v49_91: MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a!12,raf).PP2A(mek!12,raf) -> PP2A(mek,raf) + MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a,raf) r11_k58
+	v48_90: MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a,raf) + PP2A(mek,raf) <-> MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a!12,raf).PP2A(mek!12,raf) r12_k57,r12_k57r
+	MKP_PPdegrade: MKP(_PPmod~_PP,erk,starmod~0) -> MKP(_PPmod~0,erk,starmod~0) r13_k82
+	releaseERKPP_MKPPP: ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~0,erk!20,starmod~0) -> MKP(_PPmod~_PP,erk,starmod~0) + ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) r14_k64
+	ERK_PPbinds_MKP: MKP(_PPmod~0,erk,starmod~0) + ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) <-> ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~0,erk!20,starmod~0) r15_k63,r15_k63r
+	v59_w6: ERK(Pmod~0,_Pmod~0,cpxmod~CPX,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) <-> ERK(Pmod~0,_Pmod~0,cpxmod~0,mek,mkp,pla2,raf) + MKP(_PPmod~_PP,erk,starmod~0) r16_k70,r16_k70r
+	w5: ERK(Pmod~P,_Pmod~0,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~STAR) -> ERK(Pmod~0,_Pmod~0,cpxmod~CPX,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~0) r17_k69
+	v58_w4: ERK(Pmod~0,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) + MKP(_PPmod~_PP,erk,starmod~0) <-> ERK(Pmod~P,_Pmod~0,cpxmod~0,mek,mkp!20,pla2,raf).MKP(_PPmod~_PP,erk!20,starmod~STAR) r18_k68,r18_k68r
+	releaseRafstarPP2A: Raf(cpxmod~0,cpxstarmod~0,erk!29,mek,pp2a,ras,starmod~STAR).ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf!29) -> ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) + Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STARSTAR) r19_k76
+	releaseRaf: Raf(cpxmod~CPX,cpxstarmod~0,erk,mek,pp2a!25,ras,starmod~STAR).PP2A(mek,raf!25) -> Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~0) + PP2A(mek,raf) r20_k52
+	Rafstarbinds_PP2A: PP2A(mek,raf) + Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) <-> Raf(cpxmod~CPX,cpxstarmod~0,erk,mek,pp2a!25,ras,starmod~STAR).PP2A(mek,raf!25) r21_k51,r21_k51r
+	Rafstar_bindsERKPP: ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) + Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) <-> Raf(cpxmod~0,cpxstarmod~0,erk!29,mek,pp2a,ras,starmod~STAR).ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf!29) r22_k75,r22_k75r
+	v55_u4: ERK(Pmod~0,_Pmod~_P,cpxmod~0,mek!27,mkp,pla2,raf).MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk!27,pp2a,raf) -> MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a,raf) + ERK(Pmod~P,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) r23_k62
+	u1: ERK(Pmod~0,_Pmod~0,cpxmod~0,mek,mkp,pla2,raf) + MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a,raf) <-> ERK(Pmod~0,_Pmod~0,cpxmod~CPX,mek!27,mkp,pla2,raf).MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk!27,pp2a,raf) r24_k59,r24_k59r
+	u2: ERK(Pmod~0,_Pmod~0,cpxmod~CPX,mek!27,mkp,pla2,raf).MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk!27,pp2a,raf) -> ERK(Pmod~0,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) + MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a,raf) r25_k60
+	PLA2starbinds_Ca: Ca(pkc,pla2,plcb) + PLA2(ca,erk,pi,starmod~STAR) <-> PLA2(ca!2,erk,pi,starmod~STAR).Ca(pkc,pla2!2,plcb) r26_k83,r26_k83r
+	v54_u3: ERK(Pmod~0,_Pmod~_P,cpxmod~0,mek,mkp,pla2,raf) + MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk,pp2a,raf) <-> ERK(Pmod~0,_Pmod~_P,cpxmod~0,mek!27,mkp,pla2,raf).MEK(Pmod~P,_Pmod~_P,cpxmod~0,erk!27,pp2a,raf) r27_k61,r27_k61r
+	PLA2_binds_Ca: PLA2(ca,erk,pi,starmod~0) + Ca(pkc,pla2,plcb) <-> PLA2(ca!2,erk,pi,starmod~0).Ca(pkc,pla2!2,plcb) r28_k74,r28_k74r
+	releaseRafstardRasGTP: Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~CPX,genericMod~0,raf!23,shc).Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras!23,starmod~0) -> Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) + Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~0,genericMod~0,raf,shc) r29_k46
+	v51_93: MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a!12,raf).PP2A(mek!12,raf) -> MEK(Pmod~0,_Pmod~0,cpxmod~0,erk,pp2a,raf) + PP2A(mek,raf) r30_k56
+	v50_92: PP2A(mek,raf) + MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a,raf) <-> MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a!12,raf).PP2A(mek!12,raf) r31_k55,r31_k55r
+	v45_87: Raf(cpxmod~0,cpxstarmod~0,erk,mek!24,pp2a,ras,starmod~STAR).MEK(Pmod~0,_Pmod~0,cpxmod~CPX,erk,pp2a,raf!24) -> MEK(Pmod~0,_Pmod~_P,cpxmod~0,erk,pp2a,raf) + Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) r32_k48
+	v44_86: MEK(Pmod~0,_Pmod~0,cpxmod~0,erk,pp2a,raf) + Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) <-> Raf(cpxmod~0,cpxstarmod~0,erk,mek!24,pp2a,ras,starmod~STAR).MEK(Pmod~0,_Pmod~0,cpxmod~CPX,erk,pp2a,raf!24) r33_k47,r33_k47r
+	RasGTPactbyGAP: Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~0,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~RasGDP,raf,shc) functionRate33()
+	RasGTPbinds_Raf: Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~0) + Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~0,genericMod~0,raf,shc) <-> Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~CPX,genericMod~0,raf!23,shc).Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras!23,starmod~0) r35_k45,r35_k45r
+	intrinsicRas: Ras(GAPmod~0,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~RasGDP,raf,shc) <-> Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~0,genericMod~0,raf,shc) r36_k44,r36_k44r
+	dissociation_RGS_Gqa_GTPcpx: Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4!16).RGS4(gq_a!16) -> RGS4(gq_a) + Pi() + Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma,ht2ar,plcb,rgs4) r37_k10_2a
+	RGSfor2A_binds_Gqa_GTP: RGS4(gq_a) + Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4) <-> Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4!16).RGS4(gq_a!16) r38_k9_2a,r38_k9r_2a
+	Gqitrimer_GDP_to_Gbr_Gq_a_GTP: Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar,plcb,rgs4).Gq_betagamma(gq_a!11) -> Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4) + Gq_betagamma(gq_a) r39_k7_2a
+	Gqtrimerization: Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma,ht2ar,plcb,rgs4) + Gq_betagamma(gq_a) -> Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar,plcb,rgs4).Gq_betagamma(gq_a!11) r40_k6_2a
+	HRbindsGqtrimer_GDP: ht2AR(genericMod~0,gq_a,ketanserin,tcb!6).TCB(ht2ar!6) + Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar,plcb,rgs4).Gq_betagamma(gq_a!11) <-> Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin,tcb!6).TCB(ht2ar!6).Gq_betagamma(gq_a!11) r41_k4_2a,r41_k4r_2a
+	Gqtrimer_GDP_with_5HT2AR: ht2AR(genericMod~0,gq_a,ketanserin,tcb) + Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar,plcb,rgs4).Gq_betagamma(gq_a!11) <-> Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin,tcb).Gq_betagamma(gq_a!11) r42_k3_2a,r42_k3r_2a
+	TCBbinds_2AR: TCB(ht2ar) + ht2AR(genericMod~0,gq_a,ketanserin,tcb) <-> ht2AR(genericMod~0,gq_a,ketanserin,tcb!6).TCB(ht2ar!6) r43_k1_2a,r43_k1r_2a
+	TCB_binds2ARGq: TCB(ht2ar) + Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin,tcb).Gq_betagamma(gq_a!11) <-> Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin,tcb!6).TCB(ht2ar!6).Gq_betagamma(gq_a!11) r44_k2_2a,r44_k2r_2a
+	dep_PLA2_star: PLA2(ca,erk,pi,starmod~STAR) -> PLA2(ca,erk,pi,starmod~0) r45_k73
+	insertion: 0  <-> ht2AR(genericMod~0,gq_a,ketanserin,tcb)@cell r46_Vr_2a,r46_kt_2a
+	ligand_deg: TCB(ht2ar)@cell -> 0  r47_kh_2a
+	receptor2a_inter: ht2AR(genericMod~ht2AR_internal,gq_a,ketanserin,tcb) <-> ht2AR(genericMod~0,gq_a,ketanserin,tcb) r48_v6_2a,r48_v6r_2a
+	L2sR_internal_deg: ht2AR(genericMod~ht2AR_internal,gq_a,ketanserin,tcb!6).TCB(ht2ar!6) -> A_2AR_i_deg() r49_v62_2a
+	L2aRinternal: ht2AR(genericMod~0,gq_a,ketanserin,tcb!6).TCB(ht2ar!6) -> ht2AR(genericMod~ht2AR_internal,gq_a,ketanserin,tcb!6).TCB(ht2ar!6) r50_ke_2a
+	cpxARGq_split: Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin,tcb!6).TCB(ht2ar!6).Gq_betagamma(gq_a!11) -> Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4) + ht2AR(genericMod~0,gq_a,ketanserin,tcb!6).TCB(ht2ar!6) + Gq_betagamma(gq_a) r51_k5_2a
+	PLCb_binds_Gq_a_GTP: Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4) + PLCb(ca,gq_a) <-> Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb!14,rgs4).PLCb(ca,gq_a!14) r52_k11_2a,r52_k11r_2a
+	PLCb_binds_Ca: Ca(pkc,pla2,plcb) + PLCb(ca,gq_a) <-> Ca(pkc,pla2,plcb!3).PLCb(ca!3,gq_a) r53_k12_2a,r53_k12r_2a
+	PLCb_Gq_a_GTPbinds_Ca: Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb!14,rgs4).PLCb(ca,gq_a!14) + Ca(pkc,pla2,plcb) <-> Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb!14,rgs4).Ca(pkc,pla2,plcb!3).PLCb(ca!3,gq_a!14) r54_k14_2a,r54_k14r_2a
+	PLCb_Ca_binds_Gq_a_GTP: Ca(pkc,pla2,plcb!3).PLCb(ca!3,gq_a) + Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb,rgs4) <-> Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb!14,rgs4).Ca(pkc,pla2,plcb!3).PLCb(ca!3,gq_a!14) r55_k13_2a,r55_k13r_2a
+	PKC_binds_Ca: PKC(aa,ca,dag) + Ca(pkc,pla2,plcb) <-> Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag) r56_k21_2a,r56_k21r_2a
+	DAGbindsPKC_Ca: DAG(Pmod~0,genericMod~0,pkc) + Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag) <-> Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag!4).DAG(Pmod~0,genericMod~0,pkc!4) r57_k23_2a,r57_k23r_2a
+	AAfrom_PLA2star_Ca: APC() -> AA(genericMod~0,pkc) functionRate57()
+	AA_binds_PKC_Ca: AA(genericMod~0,pkc) + Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag) <-> Ca(pkc!0,pla2,plcb).PKC(aa!1,ca!0,dag).AA(genericMod~0,pkc!1) r59_k58_2a,r59_k58r_2a
+	AA_binds_PKC: AA(genericMod~0,pkc) + PKC(aa,ca,dag) <-> PKC(aa!1,ca,dag).AA(genericMod~0,pkc!1) r60_k61_2a,r60_k61r_2a
+	PIP2_binds_PLA2_Ca: PI(P2mod~P2,P3mod~0,pi3k,pla2,pten,src) + PLA2(ca!2,erk,pi,starmod~0).Ca(pkc,pla2!2,plcb) <-> PI(P2mod~P2,P3mod~0,pi3k,pla2!10,pten,src).PLA2(ca!2,erk,pi!10,starmod~0).Ca(pkc,pla2!2,plcb) r61_k65_2a,r61_k65r_2a
+	AAfrom_PIP2_PLA2_Ca: APC() -> AA(genericMod~0,pkc) functionRate61()
+	AAfrom_PLA2_Ca: APC() -> AA(genericMod~0,pkc) functionRate62()
+	IP3deg: IP3()@cell -> 0  functionRate63()
+	DAGdeg: DAG(Pmod~0,genericMod~0,pkc) -> DAG(Pmod~P,genericMod~0,pkc) r65_k20_2a
+	degRasGAPstar: Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) r66_k33_2a
+	PKC_Ca_DAGactive_actRasGAP: Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) functionRate66()
+	GEF_deact: Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) r68_k36_2a
+	PKC_AA_actRasGAP: Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) functionRate68()
+	PKC_Ca_AAactRasGAP: Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) functionRate69()
+	PKC_DAG_AAactive_actRasGAP: Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~GAP,GEFmod~0,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) functionRate70()
+	PKC_Ca_DAGactive_actRasGEF: Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) functionRate71()
+	PKC_AAactRasGEF: Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) functionRate72()
+	PKC_Ca_AAactRasGEF: Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) functionRate73()
+	PKC_DAG_AAregu_RasGEF: Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~0,cpxmod~0,genericMod~0,raf,shc) -> Ras(GAPmod~0,GEFmod~GEF,GTPmod~0,_starmod~_STAR,cpxmod~0,genericMod~0,raf,shc) functionRate74()
+	PIP2_binds_PLA2: PLA2(ca,erk,pi,starmod~0) + PI(P2mod~P2,P3mod~0,pi3k,pla2,pten,src) <-> PI(P2mod~P2,P3mod~0,pi3k,pla2!10,pten,src).PLA2(ca,erk,pi!10,starmod~0) r76_k80_2a,r76_k80r_2a
+	AAfrom_PIP2PLA2: APC() -> AA(genericMod~0,pkc) functionRate76()
+	IP3DAG_byPIP2_PLCCa: PI(P2mod~P2,P3mod~0,pi3k,pla2,pten,src) -> IP3() + DAG(Pmod~0,genericMod~0,pkc) functionRate77()
+	IP3DAG_byPIP2_PLCCaGq: PI(P2mod~P2,P3mod~0,pi3k,pla2,pten,src) -> IP3() + DAG(Pmod~0,genericMod~0,pkc) functionRate78()
+	DAGbindsPKC: PKC(aa,ca,dag) + DAG(Pmod~0,genericMod~0,pkc) <-> DAG(Pmod~0,genericMod~0,pkc!4).PKC(aa,ca,dag!4) r80_k22_2a,r80_k22r_2a
+	releasePKc_Ca_DAGactive: Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag!4).DAG(Pmod~0,genericMod~0,pkc!4) <-> Ca(pkc!0,pla2,plcb).PKC(aa,ca!0,dag!4).DAG(Pmod~0,genericMod~DAGactive,pkc!4) r81_k24_2a,r81_k24r_2a
+	AAbinds_PKC_DAG: AA(genericMod~0,pkc) + DAG(Pmod~0,genericMod~0,pkc!4).PKC(aa,ca,dag!4) <-> PKC(aa!1,ca,dag!4).DAG(Pmod~0,genericMod~0,pkc!4).AA(genericMod~0,pkc!1) r82_k59_2a,r82_k59r_2a
+	PKC_DAG_AAactive_2: PKC(aa!1,ca,dag!4).DAG(Pmod~0,genericMod~0,pkc!4).AA(genericMod~0,pkc!1) <-> PKC(aa!1,ca,dag!4).DAG(Pmod~0,genericMod~0,pkc!4).AA(genericMod~AAactive,pkc!1) r83_k60_2a,r83_k60r_2a
+	inact_PLCb_Ca_Gq_a_GTP: Gq_a(GTPmod~GTP,_GDPmod~0,_mod~_,gq_betagamma,ht2ar,plcb!14,rgs4).Ca(pkc,pla2,plcb!3).PLCb(ca!3,gq_a!14) -> Ca(pkc,pla2,plcb!3).PLCb(ca!3,gq_a) + Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma,ht2ar,plcb,rgs4) + Pi() r84_k15_2a
+	degradeAA: AA(genericMod~0,pkc) -> APC() r85_k79_2a
+	PIgene: DAG(Pmod~P,genericMod~0,pkc) -> PI(P2mod~0,P3mod~0,pi3k,pla2,pten,src) r86_k_PA
+	PKC_Ca_DAGactive_actRaf: Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~0) -> Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) functionRate86()
+	PKC_Ca_AAactRaf: Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~0) -> Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) functionRate87()
+	PKC_AAact_Raf: Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~0) -> Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) functionRate88()
+	RafactbyPKC_DAG_AAactive: Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~0) -> Raf(cpxmod~0,cpxstarmod~0,erk,mek,pp2a,ras,starmod~STAR) functionRate89()
+	bindingofPI3K_Gibr: PI3K(gi_betagamma,pi,starmod~0) + Gi_betagamma(gi_a,pi3k) <-> PI3K(gi_betagamma!7,pi,starmod~0).Gi_betagamma(gi_a,pi3k!7) r91_k22,r91_k22r
+	release_activePI3K: PI3K(gi_betagamma!7,pi,starmod~0).Gi_betagamma(gi_a,pi3k!7) -> PI3K(gi_betagamma,pi,starmod~STAR) + Gi_betagamma(gi_a,pi3k) r92_k23
+	PIP2bindfsPI3Kstar: PI3K(gi_betagamma,pi,starmod~STAR) + PI(P2mod~P2,P3mod~0,pi3k,pla2,pten,src) <-> PI(P2mod~P2,P3mod~0,pi3k!22,pla2,pten,src).PI3K(gi_betagamma,pi!22,starmod~STAR) r93_k24,r93_k24r
+	releasePI3Kstar: PI(P2mod~P2,P3mod~0,pi3k!22,pla2,pten,src).PI3K(gi_betagamma,pi!22,starmod~STAR) -> PI(P2mod~0,P3mod~P3,pi3k,pla2,pten,src) + PI3K(gi_betagamma,pi,starmod~STAR) r94_k25
+	Srcbinds_PIP3: Src(_starmod~0,cpxmod~0,csk,pi) + PI(P2mod~0,P3mod~P3,pi3k,pla2,pten,src) <-> PI(P2mod~0,P3mod~P3,pi3k,pla2,pten,src!19).Src(_starmod~0,cpxmod~CPX,csk,pi!19) r95_k26,r95_k26r
+	releaseSrcstar: PI(P2mod~0,P3mod~P3,pi3k,pla2,pten,src!19).Src(_starmod~0,cpxmod~CPX,csk,pi!19) -> Src(_starmod~_STAR,cpxmod~0,csk,pi) + PI(P2mod~0,P3mod~P3,pi3k,pla2,pten,src) r96_k27
+	Srcstar_bindsCsk: Src(_starmod~_STAR,cpxmod~0,csk,pi) + Csk(cpxmod~0,src) <-> Src(_starmod~_STAR,cpxmod~0,csk!15,pi).Csk(cpxmod~0,src!15) r97_k30,r97_k30r
+	releaseSrc: Src(_starmod~_STAR,cpxmod~0,csk!15,pi).Csk(cpxmod~0,src!15) -> Src(_starmod~0,cpxmod~0,csk,pi) + Csk(cpxmod~0,src) r98_k31
+	PIP3bindsPTEN: PTEN(cpxmod~0,pi) + PI(P2mod~0,P3mod~P3,pi3k,pla2,pten,src) <-> PI(P2mod~0,P3mod~P3,pi3k,pla2,pten!21,src).PTEN(cpxmod~CPX,pi!21) r99_k28,r99_k28r
+	releasePTEN: PI(P2mod~0,P3mod~P3,pi3k,pla2,pten!21,src).PTEN(cpxmod~CPX,pi!21) -> PTEN(cpxmod~0,pi) + PI(P2mod~P2,P3mod~0,pi3k,pla2,pten,src) r100_k29
+	deactPI3K_star: PI3K(gi_betagamma,pi,starmod~STAR) -> PI3K(gi_betagamma,pi,starmod~0) r101_k79
+	LRinternal_1a: HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin!8).serotonin(ht1ar!8) -> HT1AR(cpxmod~0,genericMod~ht1AR_internal,gi_a,serotonin!8).serotonin(ht1ar!8) r102_ke
+	LR_internal_deg: HT1AR(cpxmod~0,genericMod~ht1AR_internal,gi_a,serotonin!8).serotonin(ht1ar!8) -> A_HT1R_i_deg() r103_v62
+	receptor_interl: HT1AR(cpxmod~0,genericMod~HT1AR_internal,gi_a,serotonin) <-> HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin) r104_v6,r104_v6r
+	ligand1a_deg: serotonin(ht1ar)@cell -> 0  r105_kh
+	insertion_1a: 0  <-> HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin)@cell r106_Vr,r106_kt
+	HT_binds1ARGi: serotonin(ht1ar) + Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar!30,rgs4_1).HT1AR(cpxmod~CPX,genericMod~0,gi_a!30,serotonin).Gi_betagamma(gi_a!9,pi3k) <-> Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar!30,rgs4_1).HT1AR(cpxmod~CPX,genericMod~0,gi_a!30,serotonin!8).Gi_betagamma(gi_a!9,pi3k).serotonin(ht1ar!8) r107_k2,r107_k2r
+	HTbinds_1AR: HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin) + serotonin(ht1ar) <-> HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin!8).serotonin(ht1ar!8) r108_k1,r108_k1r
+	Gitrimer_GDP_with_5HT1AR: HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin) + Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar,rgs4_1).Gi_betagamma(gi_a!9,pi3k) <-> Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar!30,rgs4_1).HT1AR(cpxmod~CPX,genericMod~0,gi_a!30,serotonin).Gi_betagamma(gi_a!9,pi3k) r109_k3,r109_k3r
+	HRbindsGitrimer_GDP: HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin!8).serotonin(ht1ar!8) + Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar,rgs4_1).Gi_betagamma(gi_a!9,pi3k) <-> Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar!30,rgs4_1).HT1AR(cpxmod~CPX,genericMod~0,gi_a!30,serotonin!8).Gi_betagamma(gi_a!9,pi3k).serotonin(ht1ar!8) r110_k4,r110_k4r
+	Gitrimerization: Gi_betagamma(gi_a,pi3k) + Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma,ht1ar,rgs4_1) -> Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar,rgs4_1).Gi_betagamma(gi_a!9,pi3k) r111_k6
+	Gitrimer_GDP_to_GbrGi_a_GTP: Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar,rgs4_1).Gi_betagamma(gi_a!9,pi3k) -> Gi_a(GTPmod~GTP,_GDPmod~0,_mod~_,gi_betagamma,ht1ar,rgs4_1) + Gi_betagamma(gi_a,pi3k) r112_k7
+	H1ARGi_split: Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma!9,ht1ar!30,rgs4_1).HT1AR(cpxmod~CPX,genericMod~0,gi_a!30,serotonin!8).Gi_betagamma(gi_a!9,pi3k).serotonin(ht1ar!8) -> HT1AR(cpxmod~0,genericMod~0,gi_a,serotonin!8).serotonin(ht1ar!8) + Gi_a(GTPmod~GTP,_GDPmod~0,_mod~_,gi_betagamma,ht1ar,rgs4_1) + Gi_betagamma(gi_a,pi3k) + Pi() r113_k5
+	RGSfor1A_binds_Gia_GTP: Gi_a(GTPmod~GTP,_GDPmod~0,_mod~_,gi_betagamma,ht1ar,rgs4_1) + RGS4_1(gi_a) <-> Gi_a(GTPmod~GTP,_GDPmod~0,_mod~_,gi_betagamma,ht1ar,rgs4_1!18).RGS4_1(gi_a!18) r114_k9,r114_k9r
+	dissociation_RGS_Gia_GTPcpx: Gi_a(GTPmod~GTP,_GDPmod~0,_mod~_,gi_betagamma,ht1ar,rgs4_1!18).RGS4_1(gi_a!18) -> Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma,ht1ar,rgs4_1) + RGS4_1(gi_a) + Pi() r115_k10
+	basal_Gi_a_GTP_split_rx: Gi_a(GTPmod~GTP,_GDPmod~0,_mod~_,gi_betagamma,ht1ar,rgs4_1) -> Gi_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gi_betagamma,ht1ar,rgs4_1) + Pi() r116_k8
+	v38_Grb2_binds_Shcstar: Shc(_starmod~_STAR,grb2,ras) + Grb2(shc,sos) <-> Shc(_starmod~_STAR,grb2!13,ras).Grb2(shc!13,sos) r117_k36,r117_k36r
+	v17_64_SosbindsGrb2: Grb2(shc,sos) + Sos(_Pmod~0,grb2) <-> Sos(_Pmod~0,grb2!5).Grb2(shc,sos!5) r118_k35,r118_k35r
+	v41_83_Grb2_Sosbinds_Shc: Shc(_starmod~_STAR,grb2,ras) + Sos(_Pmod~0,grb2!5).Grb2(shc,sos!5) <-> Shc(_starmod~_STAR,grb2!13,ras).Sos(_Pmod~0,grb2!5).Grb2(shc!13,sos!5) r119_k34,r119_k34r
+	v40_Sosbinds_ShcstarGrb2: Shc(_starmod~_STAR,grb2!13,ras).Grb2(shc!13,sos) + Sos(_Pmod~0,grb2) <-> Shc(_starmod~_STAR,grb2!13,ras).Sos(_Pmod~0,grb2!5).Grb2(shc!13,sos!5) r120_k37,r120_k37r
+	v33_splitShc_star_Grb2_Sos: Shc(_starmod~_STAR,grb2!13,ras).Sos(_Pmod~0,grb2!5).Grb2(shc!13,sos!5) <-> Shc(_starmod~_STAR,grb2,ras) + Sos(_Pmod~0,grb2!5).Grb2(shc,sos!5) r121_k39,r121_k39r
+	dep_Sos_P: Sos(_Pmod~_P,grb2!5).Grb2(shc,sos!5) -> Sos(_Pmod~0,grb2!5).Grb2(shc,sos!5) r122_k78
+	v35_splitGrb2_Sos: Sos(_Pmod~0,grb2!5).Grb2(shc,sos!5) <-> Grb2(shc,sos) + Sos(_Pmod~0,grb2) r123_k38,r123_k38r
+	Sos_PbyERK_PP: Shc(_starmod~_STAR,grb2!13,ras).Sos(_Pmod~0,grb2!5).Grb2(shc!13,sos!5) -> Sos(_Pmod~_P,grb2!5).Grb2(shc,sos!5) + Shc(_starmod~_STAR,grb2,ras) functionRate123()
+	ShcactbySrcstar: Shc(_starmod~0,grb2,ras) -> Shc(_starmod~_STAR,grb2,ras) functionRate124()
+	v36_depShc_star: Shc(_starmod~_STAR,grb2,ras) -> Shc(_starmod~0,grb2,ras) + Pi() functionRate125()
+	RasGDPbinds_ShcstarGrb2Sos: Shc(_starmod~_STAR,grb2!13,ras).Sos(_Pmod~0,grb2!5).Grb2(shc!13,sos!5) + Ras(GAPmod~0,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~RasGDP,raf,shc) <-> Ras(GAPmod~0,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~RasGDP,raf,shc!31).Shc(_starmod~_STAR,grb2!13,ras!31).Sos(_Pmod~0,grb2!5).Grb2(shc!13,sos!5) r127_k42,r127_k42r
+	releaseRasGTPfromShc: Ras(GAPmod~0,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~RasGDP,raf,shc!31).Shc(_starmod~_STAR,grb2!13,ras!31).Sos(_Pmod~0,grb2!5).Grb2(shc!13,sos!5) -> Shc(_starmod~_STAR,grb2!13,ras).Sos(_Pmod~0,grb2!5).Grb2(shc!13,sos!5) + Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~0,genericMod~0,raf,shc) r128_k43
+	RasGDPbyRasGEFstar: Ras(GAPmod~0,GEFmod~0,GTPmod~0,_starmod~0,cpxmod~0,genericMod~RasGDP,raf,shc) -> Ras(GAPmod~0,GEFmod~0,GTPmod~GTP,_starmod~0,cpxmod~0,genericMod~0,raf,shc) functionRate128()
+	Ketanserinbinds_2AR: Ketanserin(cpxmod~0,ht2ar) + ht2AR(genericMod~0,gq_a,ketanserin,tcb) <-> ht2AR(genericMod~0,gq_a,ketanserin!17,tcb).Ketanserin(cpxmod~CPX,ht2ar!17) r130_k1_ant,r130_k1r_ant
+	Ket_2ARGq_split: Ketanserin(cpxmod~0,ht2ar) + Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin,tcb).Gq_betagamma(gq_a!11) <-> Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin!17,tcb).Ketanserin(cpxmod~CPX,ht2ar!17).Gq_betagamma(gq_a!11) r131_k2_ant,r131_k2r_ant
+	cpxKetR_bindsGq: ht2AR(genericMod~0,gq_a,ketanserin!17,tcb).Ketanserin(cpxmod~CPX,ht2ar!17) + Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar,plcb,rgs4).Gq_betagamma(gq_a!11) <-> Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin!17,tcb).Ketanserin(cpxmod~CPX,ht2ar!17).Gq_betagamma(gq_a!11) r132_kant_KRbindsG,r132_krant_KRbindsG
+	Ketanserin2ARGq_split: Gq_a(GTPmod~0,_GDPmod~_GDP,_mod~0,gq_betagamma!11,ht2ar!28,plcb,rgs4).ht2AR(genericMod~0,gq_a!28,ketanserin!17,tcb).Ketanserin(cpxmod~CPX,ht2ar!17).Gq_betagamma(gq_a!11) -> ht2AR(genericMod~0,gq_a,ketanserin!17,tcb).Ketanserin(cpxmod~CPX,ht2ar!17) + productX() r133_k_ant_split
+end reaction rules
+end model

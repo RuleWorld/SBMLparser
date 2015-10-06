@@ -1,0 +1,39 @@
+ERROR:Simulation:Cannot deal with non integer stoicheometries: 0.5* STAT3Cast_STAT3Cast
+DEBUG:Atomization:added induced naming convention [['STAT3C'], ['STAT3Cast']]
+DEBUG:Atomization:added induced naming convention [['STAT3'], ['STAT3N']]
+DEBUG:Atomization:added induced naming convention [['STAT3'], ['STAT3C']]
+DEBUG:Atomization:added relationship to existing convention [['STAT3'], ['STAT3Cast']]
+DEBUG:Atomization:added relationship to existing convention [['STAT3'], ['STAT3Nast']]
+DEBUG:Atomization:inverting order of [['SHP2ast'], ['SHP2']] for lexical analysis
+DEBUG:Atomization:added induced naming convention [['Mrna'], ['Mrna_SOCS3N']]
+DEBUG:Atomization:added induced naming convention [['Mrna'], ['Mrna_SOCS3C']]
+DEBUG:Atomization:added induced naming convention [['Ras'], ['Rafast']]
+DEBUG:Atomization:added induced naming convention [['MEK'], ['MEK_P']]
+DEBUG:Atomization:added relationship to existing convention [['STAT3'], ['STAT3Cast']]
+DEBUG:Atomization:inverting order of [['SHP2ast'], ['SHP2']] for lexical analysis
+DEBUG:Atomization:added relationship to existing convention [['STAT3'], ['STAT3Nast']]
+DEBUG:Atomization:added induced naming convention [['MEK'], ['MEK_PP']]
+DEBUG:Atomization:added induced naming convention [['MEK_P'], ['MEK_PP']]
+ERROR:Atomization:Cannot converge to solution for species Rafast, conflicting definitions [['Raf'], ['Ras']]
+WARNING:Atomization:For species ERK_PP, candidates [['ERK'], ['ERK_P']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['ERK_P'] based on longest partial match
+WARNING:Atomization:For species MEK_PP, candidates [['MEK'], ['MEK_P']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['MEK_P'] based on longest partial match
+WARNING:Atomization:For species STAT3Nast, candidates [['STAT3N'], ['STAT3']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['STAT3N'] based on longest partial match
+WARNING:Atomization:For species STAT3Cast, candidates [['STAT3C'], ['STAT3']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['STAT3C'] based on longest partial match
+ERROR:Atomization:Species PP1_STAT3Cast_STAT3Cast has conflicting definitions between stoichiometry (['PP1', 'STAT3Castast', 'STAT3C']) and naming conventions [['PP1', 'STAT3Cast', 'STAT3Cast']]. Choosing the latter
+WARNING:Atomization:For species MEK_P_Rafast, candidates [['MEK_P', 'Rafast'], ['MEK', 'Rafast']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['MEK_P', 'Rafast'] based on longest partial match
+WARNING:Atomization:For species ERK_P_MEK_PP, candidates [['ERK_P', 'MEK_PP'], ['ERK', 'MEK_PP']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['ERK_P', 'MEK_PP'] based on longest partial match
+WARNING:Atomization:For species STAT3Nast_STAT3Nast, candidates [['STAT3Nast', 'STAT3Nast'], ['STAT3Nast', 'STAT3N']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting ['STAT3Nast', 'STAT3Nast'] based on longest partial match
+WARNING:Atomization:For species __IL6_gp80_gp130_JAK__ast2_STAT3Cast, candidates [[u'IL6', u'IL6', u'JAK_ast', u'JAK', 'STAT3Cast', u'gp130', u'gp130', u'gp80', u'gp80'], [u'IL6', u'IL6', u'JAK_ast', u'JAK', 'STAT3C', u'gp130', u'gp130', u'gp80', u'gp80']] agree on the basic components but naming conventions cannot determine  specific modifications. Selecting [u'IL6', u'IL6', u'JAK_ast', u'JAK', 'STAT3Cast', u'gp130', u'gp130', u'gp80', u'gp80'] based on longest partial match
+WARNING:ATOMIZATION:adding forced transformation: Ras:[[u'Ras']]:Ras_GTP
+WARNING:ATOMIZATION:adding forced transformation: Ras:[[u'Ras']]:Ras_GDP
+WARNING:ATOMIZATION:adding forced transformation: JAK:[[u'JAK']]:JAK_ast
+WARNING:ATOMIZATION:adding forced transformation: Ras:[['Ras_GTP']]:Ras_GTPast
+WARNING:Atomization:We don't know how [u'gp80', u'IL6', u'JAK', u'gp80', u'gp130', u'JAK', u'IL6', u'gp130'] and [u'SHP2'] bind together. Defaulting to largest pair : JAK-SHP2
+WARNING:Atomization:We don't know how [u'IL6', u'gp130', u'JAK', u'gp80', u'gp80', u'IL6', u'JAK', u'gp130'] and ['SOCS3'] bind together. Defaulting to largest pair : JAK-SOCS3
+WARNING:Atomization:We don't know how [u'gp130', u'JAK', u'gp80', u'gp80', u'JAK', u'IL6', u'gp130', u'IL6'] and [u'STAT3'] bind together. Defaulting to largest pair : JAK-STAT3
+WARNING:Atomization:We don't know how [u'gp80', 'Grb2', u'JAK', u'JAK', u'SHP2', u'IL6', u'gp80', u'IL6', u'gp130', 'SOS', u'gp130'] and [u'Ras'] bind together. Defaulting to largest pair : JAK-Ras
+ERROR:Simulation:Cannot deal with non integer stoicheometries: 0.5* STAT3Cast_STAT3Cast
+INFO:Summary:File contains 21 molecules out of 68 original SBML species
+ERROR:Simulation:Cannot deal with non integer stoicheometries: 0.5* STAT3Cast_STAT3Cast
+INFO:Summary:File contains 21 molecules out of 68 original SBML species
+WARNING:ContextAnalysis:Species with suspect context information were found. Information is being dumped to output151.bngl_context.log

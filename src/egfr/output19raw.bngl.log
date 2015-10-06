@@ -1,0 +1,33 @@
+WARNING:Simulation:In reaction v5, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v43, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v45, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v47, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v49, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v51, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v53, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v55, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v57, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v59, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v85, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v87, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v89, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v91, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v93, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v95, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v97, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v99, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v101, the right hand side has been determined to never activate (rate is never negative), setting reaction to unidirectional
+WARNING:Simulation:In reaction v107, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v110, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v113, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v116, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v119, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v122, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:In reaction v125, rates cannot be divided into left hand side and right hand side but reaction is marked as reversible
+WARNING:Simulation:t_EGF_EGFRm() reported as function, but usage is ambiguous
+WARNING:Simulation:t_SHC_P_t() reported as function, but usage is ambiguous
+WARNING:Simulation:t_ERK_PP() reported as function, but usage is ambiguous
+WARNING:Simulation:t_MEK_PP() reported as function, but usage is ambiguous
+WARNING:Simulation:t_Ras_GTP() reported as function, but usage is ambiguous
+WARNING:Simulation:t_Rafm() reported as function, but usage is ambiguous
+INFO:Summary:File contains 100 molecules out of 100 original SBML species
