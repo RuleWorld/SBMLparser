@@ -1,9 +1,0 @@
-{'PLCg(PLCgP_Imod, _Pmod)': set(['__EGF_EGFR__2_PLCg_P'])}
-{'binding-binding': {'EGFR(grb2, shc)': (frozenset(['independent',
-                                                    'nullrequirement']),
-                                         {('grb2', 'shc'): defaultdict(<type 'list'>, {(1, ''): ['v17', 'v24'], (0, ''): ['v9', '_reverse_v11', '_reverse_v18', '_reverse_v20']}),
-                                          ('shc', 'grb2'): defaultdict(<type 'list'>, {(0, ''): ['v13', '_reverse_v15', '_reverse_v18', '_reverse_v20']})})},
- 'modification-modification': {'PLCg(PLCgP_Imod, _Pmod)': (frozenset(['independent',
-                                                                      'requirement']),
-                                                           {('PLCgP_Imod', '_Pmod'): defaultdict(<type 'list'>, {(0, '_P'): ['v25']}),
-                                                            ('_Pmod', 'PLCgP_Imod'): defaultdict(<type 'list'>, {(0, '0'): ['v6'], (0, 'PLCgP_I'): ['_reverse_v25']})})}}
