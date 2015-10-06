@@ -69,7 +69,7 @@ def getEquivalence(species,rdf_database):
 if __name__ == "__main__":
     reader = libsbml.SBMLReader()
     #BIOMD0000000272
-    document = reader.readSBMLFromFile('../XMLExamples/curated/BIOMD0000000019.xml')
+    document = reader.readSBMLFromFile('XMLExamples/curated/BIOMD0000000219.xml')
     #document = reader.readSBMLFromFile('XMLExamples/simple4.xml')
     model = document.getModel()        
     parser = SBML2BNGL(model)

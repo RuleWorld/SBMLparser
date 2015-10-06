@@ -10,7 +10,7 @@ import numpy as np
 import json
 import itertools
 import utils.structures as st
-from copy import deepcopy
+from copy import deepcopy,copy
 import detectOntology
 import re
 import difflib
@@ -19,6 +19,7 @@ from collections import defaultdict
 import itertools
 import math
 from collections import Counter
+import re
 '''
 This file in general classifies rules according to the information contained in
 the json config file for classyfying rules according to their reactants/products
@@ -73,6 +74,7 @@ class SBMLAnalyzer:
         self.modelParser = modelParser        
         self.configurationFile = configurationFile
         self.namingConventions = detectOntology.loadOntology(namingConventions)
+        self.userNamingConventions = copy(self.namingConventions)
         self.speciesEquivalences= speciesEquivalences
         self.userEquivalencesDict = None
         self.lexicalSpecies= []
@@ -105,41 +107,118 @@ class SBMLAnalyzer:
         if compare(baseElements,newBaseElements):
             return None
         return newBaseElements
-        
-    def analyzeSpeciesModification(self,baseElement, modifiedElement,partialAnalysis):
+
+    def analyzeSpeciesModification2(self, baseElement, modifiedElement, partialAnalysis):
+        """
+        A method to read modifications within complexes.
+
+        """
+        def index_min(values):
+            return min(xrange(len(values)), key=values.__getitem__)
+
+        equivalenceTranslator, translationKeys, conventionDict = self.processNamingConventions2([baseElement, modifiedElement])
+
+        differencePosition = [(i, x) for i, x in enumerate(difflib.ndiff(baseElement, modifiedElement)) if x.startswith('+')]
+        tmp = ''
+        lastIdx = 0
+        newDifferencePosition = []
+        for i in range(len(differencePosition)):
+            tmp += differencePosition[i][1][-1]
+            if tmp in translationKeys:
+                newDifferencePosition.append(((differencePosition[lastIdx][0] + differencePosition[i][0]) / 2, tmp))
+                tmp = ''
+                lastIdx = i
+
+        differencePosition = newDifferencePosition
+
+        if len(differencePosition) == 0:
+            return None, None, None
+        sortedPartialAnalysis = sorted(partialAnalysis, key=len, reverse=True)
+        tokenPosition = []
+        tmpModifiedElement = modifiedElement
+        for token in sortedPartialAnalysis:
+            sequenceMatcher = difflib.SequenceMatcher(None,token,tmpModifiedElement)
+            #sequenceMatcher2 = difflib.SequenceMatcher(None,token,baseElement)
+            modifiedMatchingBlocks = [m.span() for m in re.finditer(token, tmpModifiedElement)]
+            baseMatchingBlocks = [m.span() for m in re.finditer(token, baseElement)]
+
+            
+            #matchingBlocks = [x for x in modifiedMatchingBlocks for y in baseMatching Blocks if ]
+            if len(modifiedMatchingBlocks) > 0:
+                #select the matching block with the lowest distance to the base matching block
+                matchingBlockIdx = index_min([min([abs((y[1]+y[0])/2 - (x[1]+x[0])/2) for y in baseMatchingBlocks]) for x in modifiedMatchingBlocks])
+                matchingBlock = modifiedMatchingBlocks[matchingBlockIdx]
+                tmpModifiedElement = list(tmpModifiedElement)
+                for idx in range(matchingBlock[0],matchingBlock[1]):
+                    tmpModifiedElement[idx] = '_'
+                tmpModifiedElement = ''.join(tmpModifiedElement)
+                tokenPosition.append((matchingBlock[0],matchingBlock[1]-1))
+            else:
+                #try fuzzy search
+                sequenceMatcher = difflib.SequenceMatcher(None,token,tmpModifiedElement)
+                match = ''.join(tmpModifiedElement[j:j+n] for i, j, n in sequenceMatcher.get_matching_blocks() if n)
+                if (len(match)) / float(len(token)) < 0.8:
+                    tokenPosition.append([999999999])
+                else:
+                    tmp = [i for i, y in enumerate(difflib.ndiff(token, tmpModifiedElement)) if not y.startswith('+')]
+                    tmpModifiedElement = list(tmpModifiedElement)
+                    for idx in tmp:
+                        tmpModifiedElement[idx] = '_'
+                    tmpModifiedElement = ''.join(tmpModifiedElement)
+                    tmp  = [tmp[0],tmp[-1]-1]
+                    tokenPosition.append(tmp)
+
+        intersection = []
+        for difference in differencePosition:
+            distance = []
+            for token in tokenPosition:
+                distance.append(min([abs(difference[0] - subtoken) for subtoken in token]))
+            closestToken = sortedPartialAnalysis[index_min(distance)]
+            #if difference[1] in conventionDict:
+            intersection.append([difference[1],closestToken,min(distance)])
+        minimumToken = min(intersection,key=lambda x:x[2])
+
+
+        if intersection:
+            return minimumToken[1],translationKeys, equivalenceTranslator
+        return None, None, None
+
+
+
+    def analyzeSpeciesModification(self, baseElement, modifiedElement, partialAnalysis):
         '''
         a method for trying to read modifications within complexes
-        This is only possible once we know their internal structure 
+        This is only possible once we know their internal structure
         (this method is called after the creation and resolving of the dependency
         graph)
         '''
-        equivalenceTranslator,translationKeys,conventionDict =  self.processNamingConventions2([baseElement, modifiedElement])
+        equivalenceTranslator, translationKeys, conventionDict = self.processNamingConventions2([baseElement, modifiedElement])
         scores = []
         if len(translationKeys) == 0:
             '''
             there's no clear lexical path between reactant and product
             '''
-            return None,None,None
+            return None, None, None
         for particle in partialAnalysis:
             distance = 9999
-            comparisonElement = max(baseElement,modifiedElement,key=len)
-            if re.search('(_|^){0}(_|$)'.format(particle),comparisonElement) == None:
-                distance = self.distanceToModification(particle,comparisonElement,translationKeys[0])
-                score = difflib.ndiff(particle,modifiedElement)
+            comparisonElement = max(baseElement, modifiedElement, key=len)
+            if re.search('(_|^){0}(_|$)'.format(particle), comparisonElement) == None:
+                distance = self.distanceToModification(particle, comparisonElement, translationKeys[0])
+                score = difflib.ndiff(particle, modifiedElement)
             else:
-                #FIXME: make sure we only do a search on those variables that are viable
-                #candidates. this is once again fuzzy string matchign. there should
-                #be a better way of doing this with difflib
-                permutations = set(['_'.join(x) for x in itertools.permutations(partialAnalysis,2) if x[0] == particle])
+                # FIXME: make sure we only do a search on those variables that are viable
+                # candidates. this is once again fuzzy string matchign. there should
+                # be a better way of doing this with difflib
+                permutations = set(['_'.join(x) for x in itertools.permutations(partialAnalysis, 2) if x[0] == particle])
                 if all([x not in modifiedElement for x in permutations]):
                     distance = self.distanceToModification(particle, comparisonElement, translationKeys[0])
                     score = difflib.ndiff(particle, modifiedElement)
-                #FIXME:tis is just an ad-hoc parameter in terms of how far a mod is from a species name
-                #use something better
+                # FIXME:tis is just an ad-hoc parameter in terms of how far a mod is from a species name
+                # use something better
             if distance < 4:
                 scores.append([particle, distance])
-        if len(scores)>0:
-            winner = scores[[x[1] for x in scores].index(min([x[1] for x in scores]))][0]   
+        if len(scores) > 0:
+            winner = scores[[x[1] for x in scores].index(min([x[1] for x in scores]))][0]
         else:
             winner = None
         if winner:
@@ -269,36 +348,51 @@ class SBMLAnalyzer:
             composingElements = []
             basicElements = []
             #break it down into small bites
-            splitparticle = particle.split('_')
-            #print '---',splitparticle
-            splitparticle = [x for x in splitparticle if x]
-            #print splitparticle
-            basicElements,composingElements = analyzeByParticle(splitparticle,species)
-            if basicElements == composingElements:
-                closeMatches = get_close_matches(particle,species)
-                matches = [x for x in closeMatches if len(x) < len(particle) and len(x) >= 3]
-                for match in matches:
-                    difference = difflib.ndiff(match,particle)
-                    differenceList = tuple([x for x in difference if '+' in x])
-                    if differenceList in self.namingConventions['patterns']:
-                        logMess('INFO:Atomization', 'matching {0}={1}'.format(particle, [match]))
-                        addToDependencyGraph(dependencyGraph,particle,[match])
-                    
-            elif particle not in composingElements and composingElements != [] and all([x in species for x in composingElements]):
-                addToDependencyGraph(dependencyGraph, particle, composingElements)
-                for element in composingElements:
-                    if element not in dependencyGraph:
-                        addToDependencyGraph(dependencyGraph, element, [])
-                    if element not in particles:
-                        additionalHandling.append(element)
+            if '_' in particle:
+                splitparticle = particle.split('_')
+                #print '---',splitparticle
+                splitparticle = [x for x in splitparticle if x]
+                #print splitparticle
+
+                basicElements,composingElements = analyzeByParticle(splitparticle,species)
+
+                if basicElements == composingElements and basicElements:
+                    closeMatches = get_close_matches(particle,species)
+                    matches = [x for x in closeMatches if len(x) < len(particle) and len(x) >= 3]
+                    for match in matches:
+                        difference = difflib.ndiff(match,particle)
+                        differenceList = tuple([x for x in difference if '+' in x])
+                        if differenceList in self.namingConventions['patterns']:
+                            logMess('INFO:Atomization', 'matching {0}={1}'.format(particle, [match]))
+                            addToDependencyGraph(dependencyGraph,particle,[match])
+                        
+                elif particle not in composingElements and composingElements != [] and all([x in species for x in composingElements]):
+                    addToDependencyGraph(dependencyGraph, particle, composingElements)
+                    for element in composingElements:
+                        if element not in dependencyGraph:
+                            addToDependencyGraph(dependencyGraph, element, [])
+                        if element not in particles:
+                            additionalHandling.append(element)
+                else:
+                    for basicElement in basicElements:
+                        if basicElement in particle and basicElement != particle:
+                            fuzzyList = self.processAdHocNamingConventions(basicElement,particle,localSpeciesDict,False,species)
+                            if self.testAgainstExistingConventions(fuzzyList[0][1],self.namingConventions['modificationList']):
+                                addToDependencyGraph(dependencyGraph,particle,[basicElement])
+                                logMess('INFO:Atomization', '{0} can be mapped to {1} through existing naming conventions'.format(particle,[basicElement]))
+                                break
             else:
-                for basicElement in basicElements:
-                    if basicElement in particle and basicElement != particle:
-                        fuzzyList = self.processAdHocNamingConventions(basicElement,particle,localSpeciesDict,False,species)
+                for comparisonParticle in particles:
+                    if particle == comparisonParticle:
+                        continue
+                    # try to map remaining orphaned molecules to each other based on simple, but known modifications
+                    if comparisonParticle in particle:
+                        fuzzyList = self.processAdHocNamingConventions(particle,comparisonParticle,localSpeciesDict, False, species)
                         if self.testAgainstExistingConventions(fuzzyList[0][1],self.namingConventions['modificationList']):
-                            addToDependencyGraph(dependencyGraph,particle,[basicElement])
-                            logMess('INFO:Atomization', '{0} can be mapped to {1} through existing naming conventions'.format(particle,[basicElement]))
-                            break
+                            addToDependencyGraph(dependencyGraph,particle,[comparisonParticle])
+                            logMess('INFO:Atomization', '{0} can be mapped to {1} through existing naming conventions'.format(particle, [comparisonParticle]))
+                            break           
+                            
         #if len(additionalHandling) > 0:
             #print self.findClosestModification(set(additionalHandling),species)
         return dependencyGraph,equivalenceTranslator
@@ -415,40 +509,40 @@ class SBMLAnalyzer:
                         modifiedElement[convention[0]].append((mol1,mol2))
                         break
             '''
-        return equivalences,modifiedElement        
-     
-    
-    def processNamingConventions2(self,molecules,threshold=4,onlyUser=False):
-            
-        #normal naming conventions
+        return equivalences,modifiedElement
+
+    def processNamingConventions2(self, molecules, threshold=4, onlyUser=False):
+
+        # normal naming conventions
         strippedMolecules = [x.strip('()') for x in molecules]
-                                                                                    
+
         tmpTranslator = {}
         translationKeys = []
         conventionDict = {}
 
-        #FIXME: This line contains the single biggest execution bottleneck in the code
-        #we should be able to delete it
-
+        # FIXME: This line contains the single biggest execution bottleneck in the code
+        # we should be able to delete it
+        # user defined equivalence
         if not onlyUser:
-            tmpTranslator,translationKeys,conventionDict =  detectOntology.analyzeNamingConventions(strippedMolecules,
-                                                                                          self.namingConventions,similarityThreshold=threshold)
-        #user defined naming convention
-        if self.userEquivalencesDict == None and hasattr(self,'userEquivalences'):
-            self.userEquivalencesDict,self.modifiedElementDictionary = self.analyzeUserDefinedEquivalences(molecules,self.userEquivalences)
-        else: 
-            if self.userEquivalencesDict ==None:            
+            tmpTranslator, translationKeys, conventionDict =  detectOntology.analyzeNamingConventions(strippedMolecules,
+                                                                                          self.namingConventions, similarityThreshold=threshold)
+        # user defined naming convention
+        if self.userEquivalencesDict is None and hasattr(self, 'userEquivalences'):
+            self.userEquivalencesDict, self.modifiedElementDictionary = self.analyzeUserDefinedEquivalences(molecules, self.userEquivalences)
+        else:
+            if self.userEquivalencesDict is None:
                 self.userEquivalencesDict = {}
-        
-        #for name in self.userEquivalencesDict:
-        #    equivalenceTranslator[name] = self.userEquivalencesDict[name]
+        '''
+        for name in self.userEquivalencesDict:
+            equivalenceTranslator[name] = self.userEquivalencesDict[name]
+        '''
 
-        #add stuff to the main translator
+        # add stuff to the main translator
         for element in self.userEquivalencesDict:
             if element not in tmpTranslator:
                 tmpTranslator[element] = []
             tmpTranslator[element].extend(self.userEquivalencesDict[element])
-        return tmpTranslator,translationKeys,conventionDict
+        return tmpTranslator, translationKeys, conventionDict
     
     def processAdHocNamingConventions(self, reactant, product,
                                       localSpeciesDict, compartmentChangeFlag, moleculeSet):
@@ -466,7 +560,6 @@ class SBMLAnalyzer:
             return [[[[reactant],[product]],None,None]]
             
         namePairs,differenceList,_ = detectOntology.defineEditDistanceMatrix(molecules,similarityThreshold=similarityThreshold)
-        
         #print '+++',namePairs,differenceList
         #print '---',detectOntology.defineEditDistanceMatrix2(molecules,similarityThreshold=similarityThreshold)
         
@@ -1115,8 +1208,9 @@ class SBMLAnalyzer:
             if not fuzzyKey:
                 return None
             for i in xrange(1, threshold):
-                combinations = itertools.permutations([x[:-3] for x in modificationList[2:]], i)
+                combinations = itertools.permutations([x[:-3] for x in modificationList], i)
                 validKeys = list(itertools.ifilter(lambda x: (''.join(x)).upper() == fuzzyKey.upper(), combinations))
+
                 if (validKeys):
                     return validKeys
             return None
@@ -1160,7 +1254,7 @@ class SBMLAnalyzer:
                         tmpState = fuzzyKey.upper()
                             
                     adhocLabelDictionary['{0}mod'.format(fuzzyKey)] = ['{0}mod'.format(fuzzyKey),tmpState]
-                    #fill main naming convention data structure                    
+                    #fill main naming convention data structure
                     self.namingConventions['modificationList'].append('{0}mod'.format(fuzzyKey))
                     self.namingConventions['reactionState'].append(tmpState)
                     self.namingConventions['reactionSite'].append('{0}mod'.format(fuzzyKey))
@@ -1190,8 +1284,17 @@ class SBMLAnalyzer:
         #example {'Phosporylation':[['A','A_p'],['B','B_p']]}
         
         #process straightforward naming conventions
-        equivalenceTranslator, translationKeys, conventionDict = self.processNamingConventions2(molecules,onlyUser=True)
+        #XXX: we should take this function out of processNamingConventions2 and all process that calls it
+        tmpTranslator,translationKeys,conventionDict =  detectOntology.analyzeNamingConventions(strippedMolecules,
+                                                                              self.userNamingConventions,similarityThreshold=10)
 
+        userEquivalenceTranslator, _, _ = self.processNamingConventions2(molecules,onlyUser=True)
+        for element in tmpTranslator:
+            if element in userEquivalenceTranslator:
+                userEquivalenceTranslator[element].extend(tmpTranslator[element])
+            else:
+                userEquivalenceTranslator[element] = tmpTranslator[element]
+        equivalenceTranslator = copy(userEquivalenceTranslator)
         newTranslationKeys = []
         adhocLabelDictionary = {}
 
@@ -1207,7 +1310,6 @@ class SBMLAnalyzer:
         # matches to different ones in the right hand size of a given reaction
         lexicalDependencyGraph = defaultdict(list)
         strippedMolecules = [x.strip('()') for x in molecules]
-
         for idx,reaction in enumerate(rawReactions):
             flagstar = False
             if len(reaction[0]) == 1 and len(reaction[1]) == 1 \
@@ -1227,6 +1329,7 @@ class SBMLAnalyzer:
                 reactantString = [[y for y in x if y!=''] for x in reactantString]
                 productString = [x.split('_') for x in reaction[1]]
                 productString = [[y for y in x if y!=''] for x in productString]        
+
             else:
                 reactantString = []
                 productString = []
@@ -1249,12 +1352,15 @@ class SBMLAnalyzer:
 
 
                 reactantString, productString = self.removeExactMatches(reactantString, productString)
-
+            if [0] in reactantString or [0] in productString:
+                continue
             matching, matching2 = self.approximateMatching2(reactantString, productString, strippedMolecules, translationKeys)
             if matching and flagstar:
                 logMess('DEBUG:Atomization', 'inverting order of {0} for lexical analysis'.format([reaction[1], reaction[0]]))
      
             flag = True
+            
+    
             if matching:
                 for reactant,matches in zip(reaction[1],matching):
                     for match in matches:
@@ -1276,8 +1382,8 @@ class SBMLAnalyzer:
 
                             lexicalDependencyGraph[reactant].append(sorted([x[1] for x in matches]))
                             for x in matches:
-                                #TODO(Oct14): it would be better to try to map this to an
-                                #existing molecule instead of trying to create a new one
+                                # TODO(Oct14): it would be better to try to map this to an
+                                # existing molecule instead of trying to create a new one
                                 if x[1] not in strippedMolecules:
                                     lexicalDependencyGraph[x[1]] = []
 
@@ -1308,7 +1414,8 @@ class SBMLAnalyzer:
         for element in equivalenceTranslator:
             listOfEquivalences.extend(equivalenceTranslator[element])
         return reactionClassification,listOfEquivalences,equivalenceTranslator, \
-                indirectEquivalenceTranslator,adhocLabelDictionary,lexicalDependencyGraph
+                indirectEquivalenceTranslator,adhocLabelDictionary,lexicalDependencyGraph, \
+                userEquivalenceTranslator
         
     
  
@@ -1338,9 +1445,9 @@ class SBMLAnalyzer:
                     tmp.extend(list(labelDictionary[rawReactions[reactionIndex][reactantIndex][chemicalIndex]]))
                 rawReactions[reactionIndex][reactantIndex] = tmp
         #self.annotationClassificationHelper(rawReactions,equivalenceTranslator[-1])         
-    
+
     def userJsonToDataStructure(self, patternName, userEquivalence, dictionary,
-                                labelDictionary,equivalencesList):
+                                labelDictionary, equivalencesList):
         '''
         converts a user defined species to an internal representation
         '''
@@ -1351,15 +1458,15 @@ class SBMLAnalyzer:
                 labelDictionary[patterName] = 0
                 return
             tmp2 = st.Molecule(molecule[0])
-            for componentIdx in range(1,len(molecule),2):
+            for componentIdx in range(1, len(molecule), 2):
                 tmp3 = st.Component(molecule[componentIdx])
-                for bindStateIdx in range(0,len(molecule[componentIdx+1]),2):
-                    if molecule[componentIdx+1][bindStateIdx] == "b":
-                        tmp3.addBond(molecule[componentIdx+1][bindStateIdx+1])
-                    elif molecule[componentIdx+1][bindStateIdx] == "s":
+                for bindStateIdx in range(0, len(molecule[componentIdx + 1]), 2):
+                    if molecule[componentIdx + 1][bindStateIdx] == "b":
+                        tmp3.addBond(molecule[componentIdx + 1][bindStateIdx + 1])
+                    elif molecule[componentIdx + 1][bindStateIdx] == "s":
                         tmp3.addState('0')
-                        tmp3.addState(molecule[componentIdx+1][bindStateIdx+1])
-                        equivalencesList.append([patterName,molecule[0]])
+                        tmp3.addState(molecule[componentIdx + 1][bindStateIdx + 1])
+                        equivalencesList.append([patternName, molecule[0]])
                 
                 #tmp3.addState(molecule[2][2])
             
@@ -1367,7 +1474,7 @@ class SBMLAnalyzer:
             stmp = st.Species()
             stmp.addMolecule(deepcopy(tmp2))
             stmp.reset()
-            #in case one definition overlaps another
+            # in case one definition overlaps another
             if molecule[0] in dictionary:
                 dictionary[molecule[0]].extend(deepcopy(stmp))
             else:
@@ -1405,7 +1512,7 @@ class SBMLAnalyzer:
                 userLabelDictionary[element] = [tuple(complexEquivalences[element])]
 
             partialUserEquivalences = speciesdictionary['partialComplexDefinition'] \
-                if 'partialComplexDefinition' in speciesdictionary else None
+                if 'partialComplexDefinition' in speciesdictionary else []
 
             for element in partialUserEquivalences:
                 self.userJsonToDataStructure(tuple(sorted(element[0])), element,partialDictionary,

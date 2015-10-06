@@ -135,11 +135,11 @@ class SBML2BNGL:
             initialConcentration = species.getInitialAmount()
         isConstant = species.getConstant()
         isBoundary = species.getBoundaryCondition()
-        #FIXME: this condition means that a variable/species can be changed
-        #by rules and/or events. this means that we effectively need a variable
-        #changed by a function that tracks this value, and all references
-        #to this observable have to be changed to the referrencing variable.
-        #http://sbml.org/Software/libSBML/docs/java-api/org/sbml/libsbml/Species.html
+        # FIXME: this condition means that a variable/species can be changed
+        # by rules and/or events. this means that we effectively need a variable
+        # changed by a function that tracks this value, and all references
+        # to this observable have to be changed to the referrencing variable.
+        # http://sbml.org/Software/libSBML/docs/java-api/org/sbml/libsbml/Species.html
         if isBoundary and not isConstant:
             isConstant = True
             if not species.isSetInitialConcentration() \
@@ -148,29 +148,28 @@ class SBML2BNGL:
         compartment = species.getCompartment()
         boundaryCondition = species.getBoundaryCondition()
         standardizedName = standardizeName(name)
-        
+
         if standardizedName in parameters:
             standardizedName = 'sp_{0}'.format(standardizedName)
-            
-        
-        
+
         # it cannot start with a number
         if standardizedName[:1].isdigit():
             standardizedName = 's' + standardizedName
-        
-        # two species cannot have the same name. Ids are unique but less informative
+
+        # two species cannot have the same name. Ids are unique but less informative, however typically species can be differentiated
+        # by compartment
         if logEntries:
             if standardizedName in self.speciesMemory:
-                standardizedName += '_' + species.getId()
-
+                if len(list(self.model.getListOfCompartments())) == 1:
+                    standardizedName += '_' + species.getId()
             self.speciesMemory.append(standardizedName)
 
         if boundaryCondition:
             self.boundaryConditionVariables.append(standardizedName)
         self.speciesDictionary[identifier] = standardizedName
         returnID = identifier if self.useID else \
-        self.speciesDictionary[identifier]
-        
+            self.speciesDictionary[identifier]
+
         values = {}
         values['returnID'] = returnID
         values['initialConcentration'] = initialConcentration
@@ -181,18 +180,18 @@ class SBML2BNGL:
         values['identifier'] = identifier
         return values
 
-
-  
-
-    def getPrunnedTree(self,math,remainderPatterns):
+    def getPrunnedTree(self, math, remainderPatterns, artificialObservables={}):
         """
         walks through a series of * nodes and removes the remainder reactant factors
         arg:remainderPatterns: argumetns to be removed from the tree
         it also changes references to time variables to the keyword 'Time'
+
+        artificialObservables: species that are changed through an sbml assignment rule. their
+        usage in bng requires special handling.
         """
 
-        swapDict = {libsbml.AST_NAME_TIME:'Time'}
-        for node in [x for x in math.getLeftChild(),math.getRightChild() if x != None]:
+        swapDict = {libsbml.AST_NAME_TIME : 'Time'}
+        for node in [x for x in math.getLeftChild(), math.getRightChild() if x != None]:
             if node.getType() in swapDict.keys():
                 node.setName(swapDict[node.getType()])
         if math.getCharacter() == '+' and math.getNumChildren() == 1:
@@ -274,10 +273,12 @@ class SBML2BNGL:
             uniqueReactantDict[reactant[0]] += reactant[1]
         return [(x, uniqueReactantDict[x]) for x in uniqueReactantDict]
 
-    def removeFactorFromMath(self, math, reactants, products):
+    def removeFactorFromMath(self, math, reactants, products, artificialObservables):
         '''
         it also adds symmetry factors. this checks for symmetry in the species names
         s
+
+        artificialObservables: species names that are changed through assignment rules. their use requires special care when calculating a rate
         '''
         ifStack = Counter()
         remainderPatterns = []
@@ -299,7 +300,9 @@ class SBML2BNGL:
         #for x in products:
         #    highStoichoiMetryFactor /= math.factorial(x[1])
         #remainderPatterns = [x[0] for x in reactants]
-        math = self.getPrunnedTree(math,remainderPatterns)
+        #print remainderPatterns, artificialObservables.keys()
+
+        math = self.getPrunnedTree(math, remainderPatterns)
         rateR = libsbml.formulaToString(math)
         for element in remainderPatterns:
             ifStack.update([element])
@@ -313,8 +316,7 @@ class SBML2BNGL:
             logMess('WARNING:SIMULATION','Found usage of "inf" inside function {0}'.format(rateR))
         elif highStoichoiMetryFactor != 1:
             rateR = '{0} * {1}'.format(rateR, int(highStoichoiMetryFactor))
-        
-        return rateR,math.getNumChildren()
+        return rateR, max(math.getNumChildren(), len(ifStack))
 
 
     def analyzeReactionRate(self, math, compartmentList, reversible, rReactant, rProduct, reactionID, parameterFunctions):
@@ -335,10 +337,10 @@ class SBML2BNGL:
                 if math.getNumChildren() > 1:
                     rateL, nl = (self.removeFactorFromMath(
                                  math.getLeftChild().deepCopy(), rReactant,
-                                 rProduct))
+                                 rProduct, parameterFunctions))
                     rateR, nr = (self.removeFactorFromMath(
                                  math.getRightChild().deepCopy(), rProduct,
-                                 rReactant))
+                                 rReactant, parameterFunctions))
                 else:
                     rateR, rateL, nr, nl = self.analyzeReactionRate(math.getChild(0), compartmentList,
                                                                     reversible, rProduct, rReactant, reactionID, parameterFunctions)
@@ -346,20 +348,20 @@ class SBML2BNGL:
 
                 if(self.getIsTreeNegative(math.getRightChild())):
                     rateL, nl = (self.removeFactorFromMath(
-                    math.getLeftChild().deepCopy(), rReactant, rProduct))
+                    math.getLeftChild().deepCopy(), rReactant, rProduct, parameterFunctions))
                     rateR, nr = (self.removeFactorFromMath(
-                    math.getRightChild().deepCopy(), rProduct, rReactant))
+                    math.getRightChild().deepCopy(), rProduct, rReactant, parameterFunctions))
                 elif(self.getIsTreeNegative(math.getLeftChild())):
                     rateR, nr = (self.removeFactorFromMath(
-                    math.getLeftChild().deepCopy(), rProduct, rReactant))
+                    math.getLeftChild().deepCopy(), rProduct, rReactant, parameterFunctions))
                     rateL, nl = (self.removeFactorFromMath(
-                    math.getRightChild().deepCopy(), rReactant, rProduct))
+                    math.getRightChild().deepCopy(), rReactant, rProduct, parameterFunctions))
                 else:
                     rateL, nl = self.removeFactorFromMath(math.deepCopy(), rReactant,
-                                                          rProduct)
+                                                          rProduct, parameterFunctions)
                     rateL = "if({0}>= 0,{0},0)".format(rateL)
                     rateR, nr = self.removeFactorFromMath(math.deepCopy(), rProduct,
-                                                          rReactant)
+                                                          rReactant, parameterFunctions)
                     rateR = "if({0}< 0,-({0}),0)".format(rateR)
                     nl, nr = 1, 1
 
@@ -367,9 +369,9 @@ class SBML2BNGL:
                 # reaction is bidirectional but i can't separate function into
                 # left hand side and right hand side
                 rateL, nl = self.removeFactorFromMath(math.deepCopy(), rReactant,
-                                                      rProduct)
+                                                      rProduct, parameterFunctions)
                 rateR, nr = self.removeFactorFromMath(math.deepCopy(), rProduct,
-                                                      rReactant)
+                                                      rReactant, parameterFunctions)
                 if nl > 0:
                     if nr == 0 and rateR not in parameterFunctions:
                         rateL = '0'
@@ -395,21 +397,24 @@ but reaction is marked as reversible'.format(reactionID))
                 #nl, nr = 1,1
         else:
             rateL, nl = (self.removeFactorFromMath(math.deepCopy(),
-                                                 rReactant, rProduct))
+                                                 rReactant, rProduct, parameterFunctions))
+
             rateR, nr = '0', '-1'
         return rateL, rateR, nl, nr
 
-    def __getRawRules(self, reaction, symmetryFactors, parameterFunctions):
+    def __getRawRules(self, reaction, symmetryFactors, parameterFunctions, translator):
         if self.useID:
             reactant = [(reactant.getSpecies(), reactant.getStoichiometry())
                         for reactant in reaction.getListOfReactants() if
-                        reactant.getSpecies() != 'EmptySet']
+                        reactant.getSpecies() not in ['EmptySet']]
             product = [(product.getSpecies(), product.getStoichiometry())
                        for product in reaction.getListOfProducts() if product.getSpecies()
-                       != 'EmptySet']
+                       not in ['EmptySet']]
         else:
-            reactant = [(self.speciesDictionary[rElement.getSpecies()], rElement.getStoichiometry()) for rElement in reaction.getListOfReactants()]
-            product = [(self.speciesDictionary[rProduct.getSpecies()], rProduct.getStoichiometry()) for rProduct in reaction.getListOfProducts()]
+            reactant = [(self.speciesDictionary[rElement.getSpecies()], rElement.getStoichiometry(),rElement.getSpecies())
+                        for rElement in reaction.getListOfReactants() if rElement.getSpecies() not in ['EmptySet']]
+            product = [(self.speciesDictionary[rProduct.getSpecies()], rProduct.getStoichiometry(), rProduct.getSpecies())
+                       for rProduct in reaction.getListOfProducts() if rProduct.getSpecies() not in ['EmptySet']]
         kineticLaw = reaction.getKineticLaw()
         reversible = reaction.getReversible()
 
@@ -417,10 +422,27 @@ but reaction is marked as reversible'.format(reactionID))
             return {'reactants': reactant, 'products': product, 'parameters': [], 'rates': ['0', '0'],
                     'reversible': reversible, 'reactionID': reaction.getId(), 'numbers': [0, 0]}
 
-        rReactant = [(x.getSpecies(), x.getStoichiometry()) for x in reaction.getListOfReactants() if x.getSpecies() != 'EmptySet']
-        rProduct = [(x.getSpecies(), x.getStoichiometry()) for x in reaction.getListOfProducts() if x.getSpecies() != 'EmptySet']
+        rReactant = []
+        rProduct = []
+
+        # in case a given species was defined as the zero molecule don't include it in the rate correction method
+        for x in reaction.getListOfReactants():
+            if x.getSpecies() not in ['EmptySet']:
+                speciesName = self.speciesDictionary[x.getSpecies()] if x.getSpecies() in self.speciesDictionary else ''
+                if speciesName in translator and str(translator[speciesName]) == '0':
+                    continue
+                rReactant.append((x.getSpecies(), x.getStoichiometry()))
+
+        for x in reaction.getListOfProducts():
+            if x.getSpecies() not in ['EmptySet']:
+                speciesName = self.speciesDictionary[x.getSpecies()] if x.getSpecies() in self.speciesDictionary else ''
+                if speciesName in translator and str(translator[speciesName]) == '0':
+                    continue
+                rProduct.append((x.getSpecies(), x.getStoichiometry()))
+
+        #rReactant = [(x.getSpecies(), x.getStoichiometry()) for x in reaction.getListOfReactants() if x.getSpecies() not in ['EmptySet']]
+        #rProduct = [(x.getSpecies(), x.getStoichiometry()) for x in reaction.getListOfProducts() if x.getSpecies() not in ['EmptySet']]
         rModifiers = [x.getSpecies() for x in reaction.getListOfModifiers() if x.getSpecies() != 'EmptySet']
-        #rReactant = [reactant for reactant in reaction.getListOfReactants()]
         parameters = [(parameter.getId(), parameter.getValue(),parameter.getUnits()) for parameter in kineticLaw.getListOfParameters()]
 
         rateL = rateR = nl = nr = None
@@ -462,7 +484,6 @@ but reaction is marked as reversible'.format(reactionID))
                         if len(rProduct) != 2:
                              rateR = '{0} * {1}'.format(rateR,compartment.getSize())
             '''     
-
         return {'reactants': reactant, 'products': product, 'parameters': parameters, 'rates': [rateL, rateR],
                 'reversible': reversible, 'reactionID': reaction.getId(), 'numbers': [nl, nr],'modifiers':rModifiers}
 
@@ -699,7 +720,7 @@ but reaction is marked as reversible'.format(reactionID))
             # symmetry factors for components with the same name
             sl, sr = self.reduceComponentSymmetryFactors(reaction, translator, functions)
             
-            rawRules = self.__getRawRules(reaction, [sl, sr], parameterFunctions)
+            rawRules = self.__getRawRules(reaction, [sl, sr], parameterFunctions,translator)
             if len(rawRules['parameters']) > 0:
                 for parameter in rawRules['parameters']:
                     """
@@ -789,7 +810,7 @@ but reaction is marked as reversible'.format(reactionID))
         #print arule.isAssignment(),arule.isRate()
         return variable,[rateL, rateR], arule.isAssignment(), arule.isRate()
         
-    def getAssignmentRules(self, zparams, parameters, molecules,observables):
+    def getAssignmentRules(self, zparams, parameters, molecules, observablesDict):
         '''
         this method obtains an SBML rate rules and assignment rules. They
         require special handling since rules are often both defined as rules 
@@ -840,34 +861,52 @@ but reaction is marked as reversible'.format(reactionID))
                             logMess("WARNING:Translation", "Parameter {0} corresponds both as a non zero parameter \
                             and a rate rule, verify behavior".format(element))
                             removeParameters.append(element)
-                        
-            elif rawArule[2] == True:
+            # it is an assigment rule
+            elif rawArule[2] is True:
 
-                #it is an assigment rule
+                '''
+                 normal species observables references in functions keep the format <speciesName>_<compartment> in function references,
+                 and observables dict keeps track of that. however when a species is defined by an assignment function we wish to 
+                 keep track of reference <speciesName> that points to a standard BNGL function
+                '''
+                if rawArule[0] in observablesDict:
+                    del observablesDict[rawArule[0]]
+
+                # it was originially defined as a zero parameter, so delete it from the parameter list definition                
                 if rawArule[0] in zRules:
+                    # dont show assignment rules as parameters
                     zRules.remove(rawArule[0])
-                    #print rawArule[0]
+                    #zRules.append([rawArule[0] + '_assignment', rawArule[1], rawArule[2], rawArule[3]])
 
                     #aParameters[rawArule[0]] = 'arj' + rawArule[0]
                     #tmp = list(rawArule)
                     #tmp[0] = 'arj' + rawArule[0]
                     #rawArule= tmp
-                    logMess('ERROR:Simulation', 'Boundary condition/assignment type variables ({0}) are not properly \
-                    supported in BioNetGen simulator'.format(rawArule[0]))
+                    matches = [molecules[x] for x in molecules if molecules[x]['name'] == rawArule[0]]
+                    if matches:
+                        if matches[0]['isBoundary']:
+                            artificialObservables[rawArule[0] + '_ar'] = writer.bnglFunction(rawArule[1][0],rawArule[0]+'_ar()',[],compartments=compartmentList,reactionDict=self.reactionDictionary)
+                            continue
+                        else:
+                            logMess('ERROR:Simulation', 'Variables that are both changed by an assignment rule and reactions are not \
+                            supported in BioNetGen simulator. The variable will be split into two'.format(rawArule[0]))
+                            artificialObservables[rawArule[0] + '_ar'] = writer.bnglFunction(rawArule[1][0],rawArule[0]+'_ar()',[],compartments=compartmentList,reactionDict=self.reactionDictionary)
+                            continue
 
                 elif rawArule[0] in molecules:
-                        if molecules[rawArule[0]]['isBoundary']:
-                            artificialObservables[rawArule[0]+'_ar'] = writer.bnglFunction(rawArule[1][0],rawArule[0]+'_ar()',[],compartments=compartmentList,reactionDict=self.reactionDictionary)
-                            continue
+
+                    if molecules[rawArule[0]]['isBoundary']:
+                        artificialObservables[rawArule[0]+'_ar'] = writer.bnglFunction(rawArule[1][0],rawArule[0]+'_ar()',[],compartments=compartmentList,reactionDict=self.reactionDictionary)
+                        continue
                 else:
                     #check if it is defined as an observable
-                    candidates =  [idx for idx,x in enumerate(observables) if rawArule[0] in x]
+                    candidates =  [idx for idx,x in enumerate(observablesDict) if rawArule[0] == x]
                     assigObsFlag = False
                     for idx in candidates:
-                        if re.search('\s{0}\s'.format(rawArule[0]),observables[idx]):
-                            artificialObservables[rawArule[0]+ '_ar'] = writer.bnglFunction(rawArule[1][0],rawArule[0]+'_ar()',[],compartments=compartmentList,reactionDict=self.reactionDictionary)
-                            assigObsFlag = True
-                            break
+                        #if re.search('\s{0}\s'.format(rawArule[0]),observables[idx]):
+                        artificialObservables[rawArule[0]+ '_ar'] = writer.bnglFunction(rawArule[1][0],rawArule[0]+'_ar()',[],compartments=compartmentList,reactionDict=self.reactionDictionary)
+                        assigObsFlag = True
+                        break
                     if assigObsFlag:
                         continue
                 # if its not a param/species/observable
@@ -939,6 +978,7 @@ but reaction is marked as reversible'.format(reactionID))
         moleculesText = []
         speciesText = []
         observablesText = []
+        observablesDict = {}
         names = []
         rawSpeciesName = translator.keys()
         speciesTranslationDict = {}
@@ -952,7 +992,7 @@ but reaction is marked as reversible'.format(reactionID))
             #if rawSpecies['returnID'] in self.boundaryConditionVariables:
             #    continue
             if (rawSpecies['compartment'] != ''):
-                self.tags[rawSpecies['returnID']] = '@%s' % (rawSpecies['compartment'])
+                self.tags[rawSpecies['identifier']] = '@%s' % (rawSpecies['compartment'])
             if(rawSpecies['returnID'] in translator):
                 if rawSpecies['returnID'] in rawSpeciesName:
                     rawSpeciesName.remove(rawSpecies['returnID'])
@@ -966,18 +1006,24 @@ but reaction is marked as reversible'.format(reactionID))
             temp = '$' if rawSpecies['isConstant'] != 0 else ''
             tmp = translator[str(rawSpecies['returnID'])] if rawSpecies['returnID'] in translator \
                 else rawSpecies['returnID'] + '()'
-            if rawSpecies['initialConcentration']>=0:
+            if rawSpecies['initialConcentration'] >= 0:
                 tmp2 = temp
-                if rawSpecies['returnID'] in self.tags:
-                    tmp2 = (self.tags[rawSpecies['returnID']])
+                if rawSpecies['identifier'] in self.tags:
+                    tmp2 = (self.tags[rawSpecies['identifier']])
                 if rawSpecies['initialConcentration'] > 0.0 or rawSpecies['isConstant']:
                     speciesText.append('{0}:{1}{2} {3} #{4} #{5}'.format(tmp2, temp, str(tmp), rawSpecies['initialConcentration'],rawSpecies['returnID'],rawSpecies['identifier']))
             if rawSpecies['returnID'] == 'e':
                 modifiedName = 'are'
             else:
                 modifiedName = rawSpecies['returnID']
-            observablesText.append('Species {0} {1} #{2}'.format(modifiedName, tmp,rawSpecies['name']))
-            speciesTranslationDict[rawSpecies['identifier']] = tmp
+            # user defined zero molecuels are not included in the observable list
+            if str(tmp) != '0':
+                if rawSpecies['compartment'] != '' and len(list(self.model.getListOfCompartments())) > 1:
+                    observablesText.append('Species {0}_{3} @{3}:{1} #{2}'.format(modifiedName, tmp,rawSpecies['name'],rawSpecies['compartment']))
+                else:
+                    observablesText.append('Species {0}_{3} @{3}:{1} #{2}'.format(modifiedName, tmp,rawSpecies['name'],rawSpecies['compartment']))
+                observablesDict[modifiedName] = '{0}_{1}'.format(modifiedName,rawSpecies['compartment'])
+                speciesTranslationDict[rawSpecies['identifier']] = tmp
         sorted(rawSpeciesName,key=len)
         for species in rawSpeciesName:
             if translator[species].getSize()==1 and translator[species].molecules[0].name not in names:
@@ -986,7 +1032,7 @@ but reaction is marked as reversible'.format(reactionID))
         #moleculesText.append('NullSpecies()')
         #speciesText.append('$NullSpecies() 1')
         self.speciesMemory = []
-        return moleculesText,speciesText,observablesText,speciesTranslationDict
+        return moleculesText,speciesText,observablesText,speciesTranslationDict, observablesDict
 
     def getInitialAssignments(self,translator,param,zparam,molecules,initialConditions):
         '''
